@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Scam — Martin Henderson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: "LayGrotesk";
+        src: url("./LayGrotesk_Medium.woff") format("woff");
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --nav-bg: #EBEBEB;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      html,
+      body {
+        font-family: "LayGrotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-white text-black">
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-[24px] md:px-[300px] pt-[14px]">
+      <div
+        class="w-full flex items-center justify-between px-4"
+        style="max-width: 1251.58px; height: 42px; background-color: var(--nav-bg); border-radius: 1000px"
+      >
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="text-[15px] leading-[21px] text-black hover:text-zinc-700"
+            >Martin Henderson</a
+          >
+        </div>
+        <div class="hidden md:flex gap-[8px] items-center">
+          <a
+            href="meet-and-greet.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            >Bookings</a
+          >
+          <a
+            href="meet-and-greet.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            >Meet and Greet</a
+          >
+          <a
+            href="fan-card.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            >Fan Card</a
+          >
+          <a
+            href="report-scam.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-black"
+            >Report Scam</a
+          >
+        </div>
+
+        <button
+          type="button"
+          class="md:hidden px-3 py-2 rounded-[1000px] hover:bg-black/10 transition-colors"
+          aria-label="Open menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          onclick="toggleMobileMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenuOverlay" class="fixed inset-0 z-40 hidden" aria-hidden="true">
+      <button
+        class="absolute inset-0 bg-black/30"
+        type="button"
+        aria-label="Close menu overlay"
+        onclick="closeMobileMenu()"
+      ></button>
+
+      <div class="relative flex justify-center px-[24px] md:px-[300px] pt-[72px]">
+        <div
+          id="mobileMenu"
+          class="w-full px-4 py-4"
+          style="max-width: 1251.58px; background-color: var(--nav-bg); border-radius: 24px"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <div class="flex flex-col gap-0">
+            <a
+              href="meet-and-greet.html"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              onclick="closeMobileMenu()"
+              >Bookings</a
+            >
+            <a
+              href="meet-and-greet.html"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              onclick="closeMobileMenu()"
+              >Meet and Greet</a
+            >
+            <a
+              href="fan-card.html"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              onclick="closeMobileMenu()"
+              >Fan Card</a
+            >
+            <a
+              href="report-scam.html"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              onclick="closeMobileMenu()"
+              >Report Scam</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="pt-[100px] pb-[80px] px-[14px] md:px-[300px]">
+      <section class="max-w-[900px] mx-auto space-y-8">
+        <header class="space-y-2">
+          <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px]">
+            Report Impersonation or Scam
+          </h1>
+          <p class="text-[14px] leading-[20px] text-zinc-500">
+            Use this form to report accounts or messages pretending to be Martin Henderson or his
+            team.
+          </p>
+          <p class="text-[14px] leading-[20px] text-zinc-500">
+            This helps us flag suspicious activity and keep fans safe. If money is involved, contact
+            your bank or payment provider immediately.
+          </p>
+        </header>
+
+        <section class="space-y-3">
+          <h2 class="text-[16px] leading-[22px] text-zinc-700">Your Details</h2>
+          <form class="space-y-6">
+            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Name (optional)</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="text"
+                    name="name"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="You can stay anonymous"
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr]">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Contact email</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="email"
+                    name="email"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="Only used if we need clarification"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <section class="space-y-3">
+              <h2 class="text-[16px] leading-[22px] text-zinc-700">Scam Details</h2>
+              <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+                <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                  <div class="bg-zinc-50 px-4 py-3 font-medium">Platform</div>
+                  <div class="px-4 py-3">
+                    <select
+                      name="platform"
+                      class="w-full bg-transparent outline-none text-zinc-700 rounded-xl px-3 py-2"
+                      required
+                    >
+                      <option value="">Select platform</option>
+                      <option>Instagram</option>
+                      <option>Facebook</option>
+                      <option>TikTok</option>
+                      <option>X / Twitter</option>
+                      <option>WhatsApp</option>
+                      <option>Email</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                  <div class="bg-zinc-50 px-4 py-3 font-medium">Account / handle</div>
+                  <div class="px-4 py-3">
+                    <input
+                      type="text"
+                      name="handle"
+                      class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                      placeholder="@fakeaccount or email used"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                  <div class="bg-zinc-50 px-4 py-3 font-medium">Amount requested</div>
+                  <div class="px-4 py-3">
+                    <input
+                      type="text"
+                      name="amount"
+                      class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                      placeholder="e.g., $250 or 'gift cards'"
+                    />
+                  </div>
+                </div>
+                <div class="md:grid md:grid-cols-[200px,1fr]">
+                  <div class="bg-zinc-50 px-4 py-3 font-medium">What happened?</div>
+                  <div class="px-4 py-3">
+                    <textarea
+                      name="details"
+                      rows="4"
+                      class="w-full bg-white border border-zinc-200 rounded-2xl px-3 py-2 text-zinc-700 placeholder:text-zinc-400 outline-none"
+                      placeholder="Share a short summary of messages, requests, dates, and any payments made."
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="pt-2">
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors"
+              >
+                Submit scam report
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="text-[16px] leading-[22px] text-zinc-700">What we recommend</h2>
+          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-zinc-500">
+            <li>Stop all contact and do not send money, gift cards, or crypto.</li>
+            <li>Take screenshots of profiles and messages before blocking.</li>
+            <li>Report the account directly to the platform.</li>
+            <li>Contact your bank or payment provider if you sent any funds.</li>
+          </ul>
+        </section>
+      </section>
+    </main>
+
+    <footer class="bg-[#F6F6F6] text-[14px] leading-[20px] py-8 px-[14px] md:px-[300px]">
+      <div
+        class="max-w-[1251.58px] mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center items-center text-center"
+      >
+        <div>
+          <p class="text-gray-600 mb-1">Email</p>
+          <a
+            href="mailto:hello@martinhenderson.com"
+            class="text-zinc-500 hover:text-black transition-colors"
+            >hello@martinhenderson.com</a
+          >
+        </div>
+        <div>
+          <p class="text-gray-600 mb-1">Other</p>
+          <a href="#" class="text-zinc-500 hover:text-black transition-colors">Legal Notice</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMobileMenu() {
+        const overlay = document.getElementById("mobileMenuOverlay");
+        const btn = document.querySelector('button[aria-controls="mobileMenu"]');
+        if (!overlay) return;
+        const isOpen = !overlay.classList.contains("hidden");
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          overlay.classList.remove("hidden");
+          overlay.setAttribute("aria-hidden", "false");
+          if (btn) btn.setAttribute("aria-expanded", "true");
+          document.body.classList.add("overflow-hidden");
+        }
+      }
+
+      function closeMobileMenu() {
+        const overlay = document.getElementById("mobileMenuOverlay");
+        const btn = document.querySelector('button[aria-controls="mobileMenu"]');
+        if (!overlay) return;
+        overlay.classList.add("hidden");
+        overlay.setAttribute("aria-hidden", "true");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden");
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMobileMenu();
+      });
+    </script>
+  </body>
+</html>

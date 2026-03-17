@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fan Card Membership — Martin Henderson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: "LayGrotesk";
+        src: url("./LayGrotesk_Medium.woff") format("woff");
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --nav-bg: #EBEBEB;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      html,
+      body {
+        font-family: "LayGrotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-white text-black">
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-[24px] md:px-[300px] pt-[14px]">
+      <div
+        class="w-full flex items-center justify-between px-4"
+        style="max-width: 1251.58px; height: 42px; background-color: var(--nav-bg); border-radius: 1000px"
+      >
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="text-[15px] leading-[21px] text-black hover:text-zinc-700"
+            >Martin Henderson</a
+          >
+        </div>
+        <div class="hidden md:flex gap-[8px] items-center">
+          <a
+            href="meet-and-greet.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            >Bookings</a
+          >
+          <a
+            href="meet-and-greet.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            >Meet and Greet</a
+          >
+          <a
+            href="fan-card.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-black"
+            >Fan Card</a
+          >
+          <a
+            href="report-scam.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            >Report Scam</a
+          >
+        </div>
+
+        <button
+          type="button"
+          class="md:hidden px-3 py-2 rounded-[1000px] hover:bg-black/10 transition-colors"
+          aria-label="Open menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          onclick="toggleMobileMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenuOverlay" class="fixed inset-0 z-40 hidden" aria-hidden="true">
+      <button
+        class="absolute inset-0 bg-black/30"
+        type="button"
+        aria-label="Close menu overlay"
+        onclick="closeMobileMenu()"
+      ></button>
+
+      <div class="relative flex justify-center px-[24px] md:px-[300px] pt-[72px]">
+        <div
+          id="mobileMenu"
+          class="w-full px-4 py-4"
+          style="max-width: 1251.58px; background-color: var(--nav-bg); border-radius: 24px"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <div class="flex flex-col gap-0">
+            <a
+              href="meet-and-greet.html"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              onclick="closeMobileMenu()"
+              >Bookings</a
+            >
+            <a
+              href="meet-and-greet.html"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              onclick="closeMobileMenu()"
+              >Meet and Greet</a
+            >
+            <a
+              href="fan-card.html"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              onclick="closeMobileMenu()"
+              >Fan Card</a
+            >
+            <a
+              href="report-scam.html"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              onclick="closeMobileMenu()"
+              >Report Scam</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="pt-[100px] pb-[80px] px-[14px] md:px-[300px]">
+      <section class="max-w-[900px] mx-auto space-y-8">
+        <header class="space-y-2">
+          <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px]">
+            Fan Card Membership Application
+          </h1>
+          <p class="text-[14px] leading-[20px] text-zinc-500">
+            Welcome to the Official Martin Henderson Fan Club!
+          </p>
+          <p class="text-[14px] leading-[20px] text-zinc-500">
+            Celebrate your love for Martin Henderson, the star of
+            <em>Virgin River</em>, <em>Grey's Anatomy</em>, <em>The Ring</em>, and more. Our Fan Cards
+            provide exclusive perks, updates, and access to fan events. Choose from three membership
+            levels tailored to different levels of fandom.
+          </p>
+        </header>
+
+        <section class="space-y-3">
+          <h2 class="text-[16px] leading-[22px] text-zinc-700">Membership Levels and Benefits</h2>
+          <p class="text-[14px] leading-[20px] text-zinc-500">
+            We offer three tiers of Fan Cards: Bronze, Silver, and Gold. Each level has different fees
+            and escalating benefits. Membership is valid for 24 months from purchase date.
+          </p>
+
+          <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+            <div class="hidden md:grid md:grid-cols-[140px,1fr,120px] bg-zinc-50 border-b border-zinc-200">
+              <div class="px-4 py-3 font-medium">Level</div>
+              <div class="px-4 py-3 font-medium">Key Benefits</div>
+              <div class="px-4 py-3 font-medium">Fee (USD)</div>
+            </div>
+
+            <div class="border-b border-zinc-200">
+              <div class="md:grid md:grid-cols-[140px,1fr,120px]">
+                <div class="px-4 py-3 font-medium bg-zinc-50 md:bg-transparent">
+                  Bronze (Entry-level)
+                </div>
+                <div class="px-4 py-3 text-zinc-500 space-y-1">
+                  <p>Digital membership card (downloadable PDF)</p>
+                  <p>Monthly newsletter with news &amp; photos</p>
+                  <p>Access to public fan forums</p>
+                  <p>10% discount on official merch</p>
+                </div>
+                <div class="px-4 py-3 text-zinc-500 md:text-right">$3,500</div>
+              </div>
+            </div>
+
+            <div class="border-b border-zinc-200">
+              <div class="md:grid md:grid-cols-[140px,1fr,120px]">
+                <div class="px-4 py-3 font-medium bg-zinc-50 md:bg-transparent">
+                  Silver (Dedicated)
+                </div>
+                <div class="px-4 py-3 text-zinc-500 space-y-1">
+                  <p>Exclusive quarterly video updates from Martin</p>
+                  <p>Priority entry to virtual fan meets</p>
+                  <p>Signed digital photo</p>
+                  <p>25% merch discount + limited edition sticker pack</p>
+                </div>
+                <div class="px-4 py-3 text-zinc-500 md:text-right">$7,500</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="md:grid md:grid-cols-[140px,1fr,120px]">
+                <div class="px-4 py-3 font-medium bg-zinc-50 md:bg-transparent">Gold</div>
+                <div class="px-4 py-3 text-zinc-500 space-y-1">
+                  <p>Annual chance to win a signed poster or merch</p>
+                  <p>Invites to exclusive live Q&amp;A sessions</p>
+                  <p>Physical laminated card shipped worldwide</p>
+                  <p>30% merch discount + personalized shoutout opportunity</p>
+                  <p>Free VIP access to select in-person events (where available)</p>
+                </div>
+                <div class="px-4 py-3 text-zinc-500 md:text-right">$15,000</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="text-[16px] leading-[22px] text-zinc-700">How to Apply</h2>
+          <ol class="list-decimal pl-5 space-y-1 text-[14px] leading-[20px] text-zinc-500">
+            <li>Fill out the application form below.</li>
+            <li>Submit your details and membership selection.</li>
+            <li>
+              Receive confirmation email within 24 hours with digital card (Bronze/Silver) or shipping
+              details (Gold).
+            </li>
+            <li>Questions? Email: <a href="mailto:fans@martinhendersonofficial.com" class="text-zinc-500 underline hover:text-black">fans@martinhendersonofficial.com</a>.</li>
+          </ol>
+        </section>
+
+        <form class="space-y-8">
+          <section class="space-y-3">
+            <h3 class="text-[15px] leading-[21px] text-zinc-700">Personal Information</h3>
+            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Full Name</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="text"
+                    name="fullName"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Date of Birth</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="date"
+                    name="dob"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Email</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="email"
+                    name="email"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Phone</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="tel"
+                    name="phone"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Mailing Address</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="text"
+                    name="address"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">City</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="text"
+                    name="city"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">State / Province</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="text"
+                    name="state"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Country</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="text"
+                    name="country"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr]">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">ZIP / Postal</div>
+                <div class="px-4 py-3">
+                  <input
+                    type="text"
+                    name="zip"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-y-3">
+            <h3 class="text-[15px] leading-[21px] text-zinc-700">Membership Selection</h3>
+            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+              <div class="px-4 py-3 space-y-2 text-zinc-500">
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="level" value="Bronze" class="accent-black" required />
+                  <span>Bronze Level ($3,500 USD)</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="level" value="Silver" class="accent-black" />
+                  <span>Silver Level ($7,500 USD)</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="level" value="Gold" class="accent-black" />
+                  <span>Gold Level ($15,000 USD)</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-[14px] leading-[20px] text-zinc-500">
+              <div>
+                <p class="mb-1">Favorite Martin Henderson role / movie</p>
+                <input
+                  type="text"
+                  name="favoriteRole"
+                  class="w-full border border-zinc-200 rounded-2xl px-3 py-2 bg-white text-zinc-700 placeholder:text-zinc-400 outline-none"
+                />
+              </div>
+              <div>
+                <p class="mb-1">How did you hear about us?</p>
+                <div class="space-y-1">
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" name="heardVia" value="Social Media" class="accent-black" />
+                    <span>Social media</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" name="heardVia" value="Friend" class="accent-black" />
+                    <span>Friend</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" name="heardVia" value="Event" class="accent-black" />
+                    <span>Event</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="checkbox" name="heardVia" value="Other" class="accent-black" />
+                    <span>Other</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="pt-2">
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors"
+            >
+              Submit membership application
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="bg-[#F6F6F6] text-[14px] leading-[20px] py-8 px-[14px] md:px-[300px]">
+      <div
+        class="max-w-[1251.58px] mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center items-center text-center"
+      >
+        <div>
+          <p class="text-gray-600 mb-1">Email</p>
+          <a
+            href="mailto:hello@martinhenderson.com"
+            class="text-zinc-500 hover:text-black transition-colors"
+            >hello@martinhenderson.com</a
+          >
+        </div>
+        <div>
+          <p class="text-gray-600 mb-1">Other</p>
+          <a href="#" class="text-zinc-500 hover:text-black transition-colors">Legal Notice</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMobileMenu() {
+        const overlay = document.getElementById("mobileMenuOverlay");
+        const btn = document.querySelector('button[aria-controls="mobileMenu"]');
+        if (!overlay) return;
+        const isOpen = !overlay.classList.contains("hidden");
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          overlay.classList.remove("hidden");
+          overlay.setAttribute("aria-hidden", "false");
+          if (btn) btn.setAttribute("aria-expanded", "true");
+          document.body.classList.add("overflow-hidden");
+        }
+      }
+
+      function closeMobileMenu() {
+        const overlay = document.getElementById("mobileMenuOverlay");
+        const btn = document.querySelector('button[aria-controls="mobileMenu"]');
+        if (!overlay) return;
+        overlay.classList.add("hidden");
+        overlay.setAttribute("aria-hidden", "true");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden");
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMobileMenu();
+      });
+    </script>
+  </body>
+</html>
