@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet &amp; Greet Booking — Martin Henderson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @font-face {
+        font-family: "LayGrotesk";
+        src: url("./LayGrotesk_Medium.woff") format("woff");
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --nav-bg: #EBEBEB;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      html,
+      body {
+        font-family: "LayGrotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-white text-black">
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-[24px] md:px-[300px] pt-[14px]">
+      <div
+        class="w-full flex items-center justify-between px-4"
+        style="max-width: 1251.58px; height: 42px; background-color: var(--nav-bg); border-radius: 1000px"
+      >
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="text-[15px] leading-[21px] text-black hover:text-zinc-700"
+            >Martin Henderson</a
+          >
+        </div>
+        <div class="hidden md:flex gap-[8px] items-center">
+          <a
+            href="index.html#bookings"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            >Bookings</a
+          >
+          <a
+            href="meet-and-greet.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-black"
+            >Meet and Greet</a
+          >
+          <a
+            href="index.html#fan-card"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            >Fan Card</a
+          >
+          <a
+            href="index.html#last-report-scam"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            >Report Scam</a
+          >
+        </div>
+
+        <button
+          type="button"
+          class="md:hidden px-3 py-2 rounded-[1000px] hover:bg-black/10 transition-colors"
+          aria-label="Open menu"
+          aria-controls="mobileMenu"
+          aria-expanded="false"
+          onclick="toggleMobileMenu()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenuOverlay" class="fixed inset-0 z-40 hidden" aria-hidden="true">
+      <button
+        class="absolute inset-0 bg-black/30"
+        type="button"
+        aria-label="Close menu overlay"
+        onclick="closeMobileMenu()"
+      ></button>
+
+      <div class="relative flex justify-center px-[24px] md:px-[300px] pt-[72px]">
+        <div
+          id="mobileMenu"
+          class="w-full px-4 py-4"
+          style="max-width: 1251.58px; background-color: var(--nav-bg); border-radius: 24px"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <div class="flex flex-col gap-0">
+            <a
+              href="index.html#bookings"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
+              onclick="closeMobileMenu()"
+              >Bookings</a
+            >
+            <a
+              href="meet-and-greet.html"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
+              onclick="closeMobileMenu()"
+              >Meet and Greet</a
+            >
+            <a
+              href="index.html#fan-card"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
+              onclick="closeMobileMenu()"
+              >Fan Card</a
+            >
+            <a
+              href="index.html#last-report-scam"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
+              onclick="closeMobileMenu()"
+              >Report Scam</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="pt-[100px] pb-[80px] px-[14px] md:px-[300px]">
+      <section class="max-w-[900px] mx-auto space-y-8">
+        <header class="space-y-2">
+          <p class="text-[13px] leading-[18px] text-zinc-500">Booking document</p>
+          <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px]">
+            Martin Henderson Meet &amp; Greet Booking
+          </h1>
+          <p class="text-[14px] leading-[20px] text-zinc-500">
+            Event: Exclusive Meet &amp; Greet with Martin Henderson
+          </p>
+        </header>
+
+        <section class="space-y-3">
+          <h2 class="text-[16px] leading-[22px] text-zinc-700">Booking Request Form</h2>
+          <p class="text-[14px] leading-[20px] text-zinc-500">
+            Please complete and submit this form to secure your meet &amp; greet booking. All bookings
+            are subject to availability and approval by Martin Henderson's management team.
+          </p>
+        </section>
+
+        <form class="space-y-8" id="bookingForm" novalidate>
+          <section class="space-y-3">
+            <h3 class="text-[15px] leading-[21px] text-zinc-700">1. Contact Information</h3>
+            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Full Name</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="fullName"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="Your name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Email Address</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="email"
+                    type="email"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="you@email.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Phone Number</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="phone"
+                    type="tel"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="+1 ..."
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Organization / Event Name</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="organization"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="(if applicable)"
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr]">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Booking For</div>
+                <div class="px-4 py-3">
+                  <select
+                    name="bookingFor"
+                    class="w-full bg-transparent outline-none text-zinc-700 rounded-xl px-3 py-2"
+                    required
+                  >
+                    <option value="">Select</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Group">Group</option>
+                    <option value="Event">Event</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-y-3">
+            <h3 class="text-[15px] leading-[21px] text-zinc-700">2. Event Details</h3>
+            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Preferred Date(s)</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="preferredDates"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="e.g., 08/15/2026 or range"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Preferred Time</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="preferredTime"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="e.g., 2:00 PM – 4:00 PM"
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Location</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="location"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="City, venue/address – virtual or in‑person"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Number of Attendees</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="attendees"
+                    type="number"
+                    min="1"
+                    max="50"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="Max 50 per session"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Duration</div>
+                <div class="px-4 py-3">
+                  <select
+                    name="duration"
+                    class="w-full bg-transparent outline-none text-zinc-700 rounded-xl px-3 py-2"
+                    required
+                  >
+                    <option value="">Select</option>
+                    <option value="1 hour">1 hour</option>
+                    <option value="2 hours">2 hours</option>
+                    <option value="3–4 hours">3–4 hours</option>
+                    <option value="6+ hours">6+ hours</option>
+                  </select>
+                </div>
+              </div>
+              <div class="md:grid md:grid-cols-[200px,1fr]">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Event Type</div>
+                <div class="px-4 py-3 text-zinc-500 space-y-1">
+                  <label class="flex items-center gap-2">
+                    <input type="radio" name="eventType" value="Fan Meet" class="accent-black" required />
+                    <span>Fan Meet</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="radio" name="eventType" value="Convention" class="accent-black" />
+                    <span>Convention</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="radio" name="eventType" value="Corporate" class="accent-black" />
+                    <span>Corporate</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="radio" name="eventType" value="Charity" class="accent-black" />
+                    <span>Charity</span>
+                  </label>
+                  <label class="flex items-center gap-2">
+                    <input type="radio" name="eventType" value="Other" class="accent-black" />
+                    <span>Other:</span>
+                    <input
+                      name="eventTypeOther"
+                      type="text"
+                      class="flex-1 bg-transparent outline-none border-b border-zinc-200 text-zinc-700 placeholder:text-zinc-400"
+                      placeholder="Describe"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-y-3">
+            <h3 class="text-[15px] leading-[21px] text-zinc-700">3. Customization Requests</h3>
+            <div class="space-y-2 text-[14px] leading-[20px] text-zinc-500">
+              <label class="flex items-center gap-2">
+                <input type="checkbox" name="photoOps" value="yes" class="accent-black" />
+                <span>Photo ops (professional photographer provided)</span>
+              </label>
+              <label class="flex items-center gap-2">
+                <input type="checkbox" name="autographs" value="yes" class="accent-black" />
+                <span>Autographs (items must be pre‑approved)</span>
+              </label>
+              <label class="flex items-center gap-2">
+                <input type="checkbox" name="qaSession" value="yes" class="accent-black" />
+                <span>Q&amp;A session</span>
+              </label>
+              <div>
+                <p class="mb-1">Special requests</p>
+                <textarea
+                  name="specialRequests"
+                  rows="3"
+                  class="w-full border border-zinc-200 rounded-2xl px-3 py-2 bg-white text-zinc-700 placeholder:text-zinc-400 outline-none"
+                  placeholder="Share any scheduling notes, accessibility needs, or special ideas."
+                ></textarea>
+              </div>
+            </div>
+          </section>
+
+          <div class="pt-2">
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors"
+            >
+              Submit booking request
+            </button>
+          </div>
+        </form>
+
+        <section class="space-y-3 mt-10">
+          <h3 class="text-[15px] leading-[21px] text-zinc-700">4. Pricing (USD)</h3>
+          <p class="text-[14px] leading-[20px] text-zinc-500">
+            A non‑refundable deposit is required to confirm any booking.
+          </p>
+          <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+            <div class="hidden md:grid md:grid-cols-[160px,1fr,140px] bg-zinc-50 border-b border-zinc-200">
+              <div class="px-4 py-3 font-medium">Package</div>
+              <div class="px-4 py-3 font-medium">Description</div>
+              <div class="px-4 py-3 font-medium">Price (per event)</div>
+            </div>
+
+            <div class="border-b border-zinc-200">
+              <div class="md:grid md:grid-cols-[160px,1fr,140px]">
+                <div class="px-4 py-3 font-medium bg-zinc-50 md:bg-transparent">Basic</div>
+                <div class="px-4 py-3 text-zinc-500">
+                  Meet &amp; greet + group photo · 1–2 hours
+                </div>
+                <div class="px-4 py-3 text-zinc-500 md:text-right">$5,000</div>
+              </div>
+            </div>
+
+            <div class="border-b border-zinc-200">
+              <div class="md:grid md:grid-cols-[160px,1fr,140px]">
+                <div class="px-4 py-3 font-medium bg-zinc-50 md:bg-transparent">Standard</div>
+                <div class="px-4 py-3 text-zinc-500">
+                  Basic + autographs + 30‑min Q&amp;A · 3–6 hours
+                </div>
+                <div class="px-4 py-3 text-zinc-500 md:text-right">$9,500</div>
+              </div>
+            </div>
+
+            <div class="border-b border-zinc-200">
+              <div class="md:grid md:grid-cols-[160px,1fr,140px]">
+                <div class="px-4 py-3 font-medium bg-zinc-50 md:bg-transparent">Premium</div>
+                <div class="px-4 py-3 text-zinc-500">
+                  Standard + individual photos + 1‑hr Q&amp;A · 6–12 hours
+                </div>
+                <div class="px-4 py-3 text-zinc-500 md:text-right">$15,750</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="md:grid md:grid-cols-[160px,1fr,140px]">
+                <div class="px-4 py-3 font-medium bg-zinc-50 md:bg-transparent">VIP (Custom)</div>
+                <div class="px-4 py-3 text-zinc-500">
+                  Fully customized experience (travel and special requirements extra)
+                </div>
+                <div class="px-4 py-3 text-zinc-500 md:text-right">From $50,000 (quote required)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-y-3">
+          <h3 class="text-[15px] leading-[21px] text-zinc-700">Terms &amp; Conditions</h3>
+          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-zinc-500">
+            <li>
+              <span class="font-medium text-zinc-600">Availability:</span> Subject to Martin's filming
+              schedule. No guarantees until deposit received.
+            </li>
+            <li>
+              <span class="font-medium text-zinc-600">Cancellation Policy:</span> 90+ days: full refund
+              minus 10% fee; 30–89 days: 50% refund; &lt;30 days: no refund.
+            </li>
+            <li>
+              <span class="font-medium text-zinc-600">Liability:</span> Attendees assume all risks. No
+              alcohol or drugs permitted.
+            </li>
+            <li>
+              <span class="font-medium text-zinc-600">Media Rights:</span> Photos/videos may be used
+              for promotion with consent.
+            </li>
+            <li>
+              <span class="font-medium text-zinc-600">Health &amp; Safety:</span> Proof of
+              vaccination/masks may be required based on local guidelines.
+            </li>
+            <li>
+              <span class="font-medium text-zinc-600">Force Majeure:</span> Events may be rescheduled
+              due to illness, travel issues, or unforeseen circumstances.
+            </li>
+          </ul>
+        </section>
+      </section>
+    </main>
+
+    <script>
+      function toggleMobileMenu() {
+        const overlay = document.getElementById("mobileMenuOverlay");
+        const btn = document.querySelector('button[aria-controls="mobileMenu"]');
+        if (!overlay) return;
+        const isOpen = !overlay.classList.contains("hidden");
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          overlay.classList.remove("hidden");
+          overlay.setAttribute("aria-hidden", "false");
+          if (btn) btn.setAttribute("aria-expanded", "true");
+          document.body.classList.add("overflow-hidden");
+        }
+      }
+
+      function closeMobileMenu() {
+        const overlay = document.getElementById("mobileMenuOverlay");
+        const btn = document.querySelector('button[aria-controls="mobileMenu"]');
+        if (!overlay) return;
+        overlay.classList.add("hidden");
+        overlay.setAttribute("aria-hidden", "true");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("overflow-hidden");
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMobileMenu();
+      });
+
+      (function () {
+        const form = document.getElementById("bookingForm");
+        if (!form) return;
+
+        function setError(el, hasError) {
+          const wrapper = el.closest(".px-4.py-3");
+          if (!wrapper) return;
+          if (hasError) {
+            wrapper.classList.add("ring-1", "ring-red-500/70", "rounded-xl");
+          } else {
+            wrapper.classList.remove("ring-1", "ring-red-500/70", "rounded-xl");
+          }
+        }
+
+        form.addEventListener("submit", function (e) {
+          let valid = true;
+
+          const requiredFields = [
+            "fullName",
+            "email",
+            "phone",
+            "bookingFor",
+            "preferredDates",
+            "location",
+            "attendees",
+            "duration",
+          ];
+
+          requiredFields.forEach((name) => {
+            const el = form.elements[name];
+            if (!el) return;
+            const value = el.value.trim();
+            const hasError = !value;
+            setError(el, hasError);
+            if (hasError) valid = false;
+          });
+
+          const eventTypeInputs = form.querySelectorAll('input[name="eventType"]');
+          let eventTypeSelected = false;
+          eventTypeInputs.forEach((input) => {
+            if (input.checked) eventTypeSelected = true;
+          });
+          if (!eventTypeSelected && eventTypeInputs.length) {
+            const groupWrapper = eventTypeInputs[0].closest(".px-4.py-3");
+            if (groupWrapper) {
+              groupWrapper.classList.add("ring-1", "ring-red-500/70", "rounded-xl");
+            }
+            valid = false;
+          } else if (eventTypeInputs.length) {
+            const groupWrapper = eventTypeInputs[0].closest(".px-4.py-3");
+            if (groupWrapper) {
+              groupWrapper.classList.remove("ring-1", "ring-red-500/70", "rounded-xl");
+            }
+          }
+
+          if (!valid) {
+            e.preventDefault();
+            const firstError = form.querySelector(".ring-red-500\\/70 input, .ring-red-500\\/70 select");
+            if (firstError) firstError.focus();
+          }
+        });
+      })();
+    </script>
+
+    <footer class="bg-[#F6F6F6] text-[14px] leading-[20px] py-8 px-[14px] md:px-[300px]">
+      <div
+        class="max-w-[1251.58px] mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center items-center text-center"
+      >
+        <div>
+          <p class="text-gray-600 mb-1">Email</p>
+          <a
+            href="mailto:hello@martinhenderson.com"
+            class="text-zinc-500 hover:text-black transition-colors"
+            >hello@martinhenderson.com</a
+          >
+        </div>
+        <div>
+          <p class="text-gray-600 mb-1">Other</p>
+          <a href="#" class="text-zinc-500 hover:text-black transition-colors">Legal Notice</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
