@@ -41,13 +41,13 @@
         </div>
         <div class="hidden md:flex gap-[8px] items-center">
           <a
-            href="meet-and-greet.html"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-black"
+            href="booking.html"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
             >Bookings</a
           >
           <a
             href="meet-and-greet.html"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-black"
             >Meet and Greet</a
           >
           <a
@@ -108,14 +108,14 @@
         >
           <div class="flex flex-col gap-0">
             <a
-              href="meet-and-greet.html"
+              href="booking.html"
               class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
               onclick="closeMobileMenu()"
               >Bookings</a
             >
             <a
               href="meet-and-greet.html"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
+              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-black focus:text-black active:text-black"
               onclick="closeMobileMenu()"
               >Meet and Greet</a
             >
@@ -207,7 +207,7 @@
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
                 <div class="bg-zinc-50 px-4 py-3 font-medium">Booking For</div>
                 <div class="px-4 py-3">
                   <select
@@ -222,6 +222,89 @@
                   </select>
                 </div>
               </div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Sex</div>
+                <div class="px-4 py-3">
+                  <select
+                    name="sex"
+                    class="w-full bg-transparent outline-none text-zinc-700 rounded-xl px-3 py-2"
+                  >
+                    <option value="">Select</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Non-binary">Non-binary</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                  </select>
+                </div>
+              </div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Occupation</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="occupation"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="e.g. Teacher, Engineer"
+                  />
+                </div>
+              </div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Home Address</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="homeAddress"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="Street address, apt/suite"
+                  />
+                </div>
+              </div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">City</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="city"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="e.g. Los Angeles"
+                  />
+                </div>
+              </div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">State</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="state"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="e.g. California"
+                  />
+                </div>
+              </div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">ZIP Code</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="zipcode"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="e.g. 90210"
+                    inputmode="numeric"
+                    autocomplete="postal-code"
+                  />
+                </div>
+              </div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">Nearest Airport</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="nearestAirport"
+                    type="text"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    placeholder="e.g. LAX, JFK"
+                  />
+                </div>
+              </div>
             </div>
           </section>
 
@@ -233,10 +316,19 @@
                 <div class="px-4 py-3">
                   <input
                     name="preferredDates"
-                    type="text"
+                    type="date"
                     class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
-                    placeholder="e.g., 08/15/2026 or range"
                     required
+                  />
+                </div>
+              </div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
+                <div class="bg-zinc-50 px-4 py-3 font-medium">End Date (optional)</div>
+                <div class="px-4 py-3">
+                  <input
+                    name="preferredDatesEnd"
+                    type="date"
+                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
                   />
                 </div>
               </div>
@@ -354,6 +446,30 @@
             </div>
           </section>
 
+          <section class="space-y-3">
+            <h3 class="text-[15px] leading-[21px] text-zinc-700">4. Package Selection</h3>
+            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+              <div class="px-4 py-3 space-y-2 text-zinc-500">
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="package" value="Basic" class="accent-black" required />
+                  <span>Basic ($5,000 USD) — Meet &amp; greet + group photo · 1–2 hours</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="package" value="Standard" class="accent-black" />
+                  <span>Standard ($9,500 USD) — Basic + autographs + 30‑min Q&amp;A · 3–6 hours</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="package" value="Premium" class="accent-black" />
+                  <span>Premium ($15,750 USD) — Standard + individual photos + 1‑hr Q&amp;A · 6–12 hours</span>
+                </label>
+                <label class="flex items-center gap-2">
+                  <input type="radio" name="package" value="VIP (Custom)" class="accent-black" />
+                  <span>VIP (Custom) — From $50,000 USD · Fully customized experience</span>
+                </label>
+              </div>
+            </div>
+          </section>
+
           <div class="pt-2">
             <button
               type="submit"
@@ -365,7 +481,7 @@
         </form>
 
         <section class="space-y-3 mt-10">
-          <h3 class="text-[15px] leading-[21px] text-zinc-700">4. Pricing (USD)</h3>
+          <h3 class="text-[15px] leading-[21px] text-zinc-700">5. Pricing (USD)</h3>
           <p class="text-[14px] leading-[20px] text-zinc-500">
             A non‑refundable deposit is required to confirm any booking.
           </p>
@@ -533,6 +649,24 @@
             }
           }
 
+          const packageInputs = form.querySelectorAll('input[name="package"]');
+          let packageSelected = false;
+          packageInputs.forEach((input) => {
+            if (input.checked) packageSelected = true;
+          });
+          if (!packageSelected && packageInputs.length) {
+            const groupWrapper = packageInputs[0].closest(".px-4.py-3");
+            if (groupWrapper) {
+              groupWrapper.classList.add("ring-1", "ring-red-500/70", "rounded-xl");
+            }
+            valid = false;
+          } else if (packageInputs.length) {
+            const groupWrapper = packageInputs[0].closest(".px-4.py-3");
+            if (groupWrapper) {
+              groupWrapper.classList.remove("ring-1", "ring-red-500/70", "rounded-xl");
+            }
+          }
+
           if (!valid) {
             e.preventDefault();
             const firstError = form.querySelector(".ring-red-500\\/70 input, .ring-red-500\\/70 select");
@@ -549,9 +683,9 @@
         <div>
           <p class="text-gray-600 mb-1">Email</p>
           <a
-            href="mailto:hello@martinhenderson.com"
+            href="mailto:hello@themartinhenderson.org"
             class="text-zinc-500 hover:text-black transition-colors"
-            >hello@martinhenderson.com</a
+            >hello@themartinhenderson.org</a
           >
         </div>
         <div>
