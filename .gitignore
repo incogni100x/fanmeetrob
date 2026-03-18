@@ -1,0 +1,13 @@
+# Dependencies
+node_modules
+
+# Build
+dist
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.DS_Store
