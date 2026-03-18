@@ -26,6 +26,20 @@
         font-family: "LayGrotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
           Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       }
+      .btn-spinner {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid currentColor;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: btn-spin 0.7s linear infinite;
+        vertical-align: middle;
+        margin-right: 6px;
+      }
+      @keyframes btn-spin {
+        to { transform: rotate(360deg); }
+      }
     </style>
   </head>
   <body class="min-h-screen bg-white text-black">
@@ -220,7 +234,7 @@
           </ol>
         </section>
 
-        <form class="space-y-8">
+        <form class="space-y-8" id="fanCardForm" novalidate data-endpoint="https://cgmvzrjxkldxtkrydcdv.supabase.co/functions/v1/fan-card-email">
           <section class="space-y-3">
             <h3 class="text-[15px] leading-[21px] text-zinc-700">Personal Information</h3>
             <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
@@ -304,6 +318,7 @@
                     name="state"
                     class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
                     placeholder="e.g. California"
+                    required
                   />
                 </div>
               </div>
@@ -361,6 +376,7 @@
                   name="favoriteRole"
                   class="w-full border border-zinc-200 rounded-2xl px-3 py-2 bg-white text-zinc-700 placeholder:text-zinc-400 outline-none"
                   placeholder="e.g. Virgin River, Jack Sheridan"
+                  required
                 />
               </div>
               <div>
@@ -390,12 +406,75 @@
           <div class="pt-2">
             <button
               type="submit"
-              class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors"
+              class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors disabled:opacity-70 disabled:pointer-events-none"
             >
-              Submit membership application
+              <span class="btn-text">Submit membership application</span>
             </button>
           </div>
         </form>
+
+    <script>
+      (function () {
+        const form = document.getElementById("fanCardForm");
+        if (!form) return;
+        function setError(el, hasError) {
+          const wrapper = el?.closest(".px-4.py-3") || el?.closest(".space-y-3");
+          if (!wrapper) return;
+          if (hasError) wrapper.classList.add("ring-1", "ring-red-500/70", "rounded-xl");
+          else wrapper.classList.remove("ring-1", "ring-red-500/70", "rounded-xl");
+        }
+        const requiredFields = ["fullName", "dob", "email", "phone", "address", "city", "state", "country", "zip", "favoriteRole"];
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          let valid = true;
+          requiredFields.forEach((name) => {
+            const el = form.elements[name];
+            if (!el) return;
+            const value = el.value.trim();
+            const hasError = !value;
+            setError(el, hasError);
+            if (hasError) valid = false;
+          });
+          const levelEl = form.querySelector('input[name="level"]:checked');
+          if (!levelEl) {
+            form.querySelector('input[name="level"]')?.closest(".px-4.py-3")?.classList.add("ring-1", "ring-red-500/70", "rounded-xl");
+            valid = false;
+          }
+          if (!valid) {
+            const firstError = form.querySelector(".ring-red-500\\/70 input");
+            if (firstError) firstError.focus();
+            return;
+          }
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalHtml = submitBtn ? submitBtn.innerHTML : "";
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="btn-spinner"></span><span>Sending…</span>';
+          }
+          const heardVia = Array.from(form.querySelectorAll('input[name="heardVia"]:checked')).map((el) => el.value);
+          const payload = {};
+          requiredFields.forEach((name) => { const el = form.elements[name]; if (el) payload[name] = el.value.trim(); });
+          payload.level = levelEl ? levelEl.value : "";
+          payload.heardVia = heardVia.length ? heardVia.join(", ") : "";
+          const endpoint = form.dataset.endpoint || "https://cgmvzrjxkldxtkrydcdv.supabase.co/functions/v1/fan-card-email";
+          try {
+            const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || data.details || "Request failed");
+            const confirmHtml = '<div class="border border-zinc-200 rounded-2xl bg-zinc-50/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-zinc-500">Application received</p><h2 class="text-[22px] leading-[28px] font-medium">Thank you</h2><p class="text-[14px] leading-[20px] text-zinc-600 max-w-md mx-auto">Your fan card application has been sent. We&rsquo;ll get back to you soon.</p></div>';
+            form.outerHTML = confirmHtml;
+          } catch (err) {
+            alert("Something went wrong. Please try again or email us at hello@themartinhenderson.org.");
+            console.error(err);
+          } finally {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalHtml || "<span class=\"btn-text\">Submit membership application</span>";
+            }
+          }
+        });
+      })();
+    </script>
       </section>
     </main>
 

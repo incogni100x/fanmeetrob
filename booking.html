@@ -26,6 +26,20 @@
         font-family: "LayGrotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
           Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       }
+      .btn-spinner {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid currentColor;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: btn-spin 0.7s linear infinite;
+        vertical-align: middle;
+        margin-right: 6px;
+      }
+      @keyframes btn-spin {
+        to { transform: rotate(360deg); }
+      }
     </style>
   </head>
   <body class="min-h-screen bg-white text-black">
@@ -360,9 +374,9 @@
           <div class="pt-2">
             <button
               type="submit"
-              class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors"
+              class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors disabled:opacity-70 disabled:pointer-events-none"
             >
-              Submit booking request
+              <span class="btn-text">Submit booking request</span>
             </button>
           </div>
         </form>
@@ -456,10 +470,10 @@
           }
 
           const submitBtn = form.querySelector('button[type="submit"]');
-          const originalText = submitBtn?.textContent;
+          const originalHtml = submitBtn ? submitBtn.innerHTML : "";
           if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.textContent = "Sending…";
+            submitBtn.innerHTML = '<span class="btn-spinner"></span><span>Sending…</span>';
           }
 
           const endpoint = form.dataset.endpoint || "https://cgmvzrjxkldxtkrydcdv.supabase.co/functions/v1/booking-email";
@@ -479,15 +493,15 @@
             if (!res.ok) {
               throw new Error(data.error || data.details || "Request failed");
             }
-            alert("Thank you. Your booking request has been sent. We’ll get back to you soon.");
-            form.reset();
+            const confirmHtml = '<div class="border border-zinc-200 rounded-2xl bg-zinc-50/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-zinc-500">Request received</p><h2 class="text-[22px] leading-[28px] font-medium">Thank you</h2><p class="text-[14px] leading-[20px] text-zinc-600 max-w-md mx-auto">Your booking request has been sent. We&rsquo;ll get back to you regarding availability.</p></div>';
+            form.outerHTML = confirmHtml;
           } catch (err) {
             alert("Something went wrong. Please try again or email us at hello@themartinhenderson.org.");
             console.error(err);
           } finally {
             if (submitBtn) {
               submitBtn.disabled = false;
-              submitBtn.textContent = originalText || "Submit booking request";
+              submitBtn.innerHTML = originalHtml || '<span class="btn-text">Submit booking request</span>';
             }
           }
         });

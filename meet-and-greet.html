@@ -26,6 +26,20 @@
         font-family: "LayGrotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
           Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       }
+      .btn-spinner {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid currentColor;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: btn-spin 0.7s linear infinite;
+        vertical-align: middle;
+        margin-right: 6px;
+      }
+      @keyframes btn-spin {
+        to { transform: rotate(360deg); }
+      }
     </style>
   </head>
   <body class="min-h-screen bg-white text-black">
@@ -156,7 +170,7 @@
           </p>
         </section>
 
-        <form class="space-y-8" id="bookingForm" novalidate>
+        <form class="space-y-8" id="bookingForm" novalidate data-endpoint="https://cgmvzrjxkldxtkrydcdv.supabase.co/functions/v1/meet-and-greet-email">
           <section class="space-y-3">
             <h3 class="text-[15px] leading-[21px] text-zinc-700">1. Contact Information</h3>
             <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
@@ -204,6 +218,7 @@
                     type="text"
                     class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
                     placeholder="(if applicable)"
+                    required
                   />
                 </div>
               </div>
@@ -228,6 +243,7 @@
                   <select
                     name="sex"
                     class="w-full bg-transparent outline-none text-zinc-700 rounded-xl px-3 py-2"
+                    required
                   >
                     <option value="">Select</option>
                     <option value="Female">Female</option>
@@ -245,6 +261,7 @@
                     type="text"
                     class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
                     placeholder="e.g. Teacher, Engineer"
+                    required
                   />
                 </div>
               </div>
@@ -256,6 +273,7 @@
                     type="text"
                     class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
                     placeholder="Street address, apt/suite"
+                    required
                   />
                 </div>
               </div>
@@ -267,6 +285,7 @@
                     type="text"
                     class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
                     placeholder="e.g. Los Angeles"
+                    required
                   />
                 </div>
               </div>
@@ -278,6 +297,7 @@
                     type="text"
                     class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
                     placeholder="e.g. California"
+                    required
                   />
                 </div>
               </div>
@@ -291,6 +311,7 @@
                     placeholder="e.g. 90210"
                     inputmode="numeric"
                     autocomplete="postal-code"
+                    required
                   />
                 </div>
               </div>
@@ -302,6 +323,7 @@
                     type="text"
                     class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
                     placeholder="e.g. LAX, JFK"
+                    required
                   />
                 </div>
               </div>
@@ -340,6 +362,7 @@
                     type="text"
                     class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
                     placeholder="e.g., 2:00 PM – 4:00 PM"
+                    required
                   />
                 </div>
               </div>
@@ -441,6 +464,7 @@
                   rows="3"
                   class="w-full border border-zinc-200 rounded-2xl px-3 py-2 bg-white text-zinc-700 placeholder:text-zinc-400 outline-none"
                   placeholder="Share any scheduling notes, accessibility needs, or special ideas."
+                  required
                 ></textarea>
               </div>
             </div>
@@ -473,9 +497,9 @@
           <div class="pt-2">
             <button
               type="submit"
-              class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors"
+              class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors disabled:opacity-70 disabled:pointer-events-none"
             >
-              Submit booking request
+              <span class="btn-text">Submit booking request</span>
             </button>
           </div>
         </form>
@@ -608,20 +632,16 @@
           }
         }
 
-        form.addEventListener("submit", function (e) {
+        const requiredFields = [
+          "fullName", "email", "phone", "organization", "bookingFor", "sex", "occupation",
+          "homeAddress", "city", "state", "zipcode", "nearestAirport",
+          "preferredDates", "preferredDatesEnd", "preferredTime", "location", "attendees", "duration",
+          "specialRequests"
+        ];
+
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
           let valid = true;
-
-          const requiredFields = [
-            "fullName",
-            "email",
-            "phone",
-            "bookingFor",
-            "preferredDates",
-            "location",
-            "attendees",
-            "duration",
-          ];
-
           requiredFields.forEach((name) => {
             const el = form.elements[name];
             if (!el) return;
@@ -630,47 +650,69 @@
             setError(el, hasError);
             if (hasError) valid = false;
           });
-
           const eventTypeInputs = form.querySelectorAll('input[name="eventType"]');
           let eventTypeSelected = false;
-          eventTypeInputs.forEach((input) => {
-            if (input.checked) eventTypeSelected = true;
-          });
+          eventTypeInputs.forEach((input) => { if (input.checked) eventTypeSelected = true; });
           if (!eventTypeSelected && eventTypeInputs.length) {
-            const groupWrapper = eventTypeInputs[0].closest(".px-4.py-3");
-            if (groupWrapper) {
-              groupWrapper.classList.add("ring-1", "ring-red-500/70", "rounded-xl");
-            }
+            eventTypeInputs[0].closest(".px-4.py-3")?.classList.add("ring-1", "ring-red-500/70", "rounded-xl");
             valid = false;
-          } else if (eventTypeInputs.length) {
-            const groupWrapper = eventTypeInputs[0].closest(".px-4.py-3");
-            if (groupWrapper) {
-              groupWrapper.classList.remove("ring-1", "ring-red-500/70", "rounded-xl");
-            }
+          } else {
+            eventTypeInputs[0].closest(".px-4.py-3")?.classList.remove("ring-1", "ring-red-500/70", "rounded-xl");
           }
-
           const packageInputs = form.querySelectorAll('input[name="package"]');
           let packageSelected = false;
-          packageInputs.forEach((input) => {
-            if (input.checked) packageSelected = true;
-          });
+          packageInputs.forEach((input) => { if (input.checked) packageSelected = true; });
           if (!packageSelected && packageInputs.length) {
-            const groupWrapper = packageInputs[0].closest(".px-4.py-3");
-            if (groupWrapper) {
-              groupWrapper.classList.add("ring-1", "ring-red-500/70", "rounded-xl");
-            }
+            packageInputs[0].closest(".px-4.py-3")?.classList.add("ring-1", "ring-red-500/70", "rounded-xl");
             valid = false;
-          } else if (packageInputs.length) {
-            const groupWrapper = packageInputs[0].closest(".px-4.py-3");
-            if (groupWrapper) {
-              groupWrapper.classList.remove("ring-1", "ring-red-500/70", "rounded-xl");
-            }
+          } else {
+            packageInputs[0].closest(".px-4.py-3")?.classList.remove("ring-1", "ring-red-500/70", "rounded-xl");
           }
-
+          const eventTypeEl = form.querySelector('input[name="eventType"]:checked');
+          const eventTypeVal = eventTypeEl ? eventTypeEl.value : "";
+          const eventTypeOtherEl = form.elements["eventTypeOther"];
+          if (eventTypeVal === "Other" && eventTypeOtherEl && !eventTypeOtherEl.value.trim()) {
+            setError(eventTypeOtherEl, true);
+            valid = false;
+          }
           if (!valid) {
-            e.preventDefault();
             const firstError = form.querySelector(".ring-red-500\\/70 input, .ring-red-500\\/70 select");
             if (firstError) firstError.focus();
+            return;
+          }
+
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const originalHtml = submitBtn ? submitBtn.innerHTML : "";
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="btn-spinner"></span><span>Sending…</span>';
+          }
+
+          const endpoint = form.dataset.endpoint || "https://cgmvzrjxkldxtkrydcdv.supabase.co/functions/v1/meet-and-greet-email";
+          const payload = {};
+          requiredFields.forEach((name) => {
+            const el = form.elements[name];
+            if (el) payload[name] = el.value.trim();
+          });
+          payload.eventType = eventTypeVal;
+          payload.eventTypeOther = eventTypeOtherEl ? eventTypeOtherEl.value.trim() : "";
+          const packageEl = form.querySelector('input[name="package"]:checked');
+          payload.package = packageEl ? packageEl.value : "";
+          payload.photoOps = form.querySelector('input[name="photoOps"]:checked') ? "yes" : "";
+          payload.autographs = form.querySelector('input[name="autographs"]:checked') ? "yes" : "";
+          payload.qaSession = form.querySelector('input[name="qaSession"]:checked') ? "yes" : "";
+
+          try {
+            const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || data.details || "Request failed");
+            const confirmHtml = '<div class="border border-zinc-200 rounded-2xl bg-zinc-50/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-zinc-500">Request received</p><h2 class="text-[22px] leading-[28px] font-medium">Thank you</h2><p class="text-[14px] leading-[20px] text-zinc-600 max-w-md mx-auto">Your meet &amp; greet booking request has been sent. We&rsquo;ll get back to you soon.</p></div>';
+            form.outerHTML = confirmHtml;
+          } catch (err) {
+            alert("Something went wrong. Please try again or email us at hello@themartinhenderson.org.");
+            console.error(err);
+          } finally {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalHtml || '<span class="btn-text">Submit booking request</span>'; }
           }
         });
       })();
