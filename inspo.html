@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMA Homes & Management - Discover Your Dream Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['TikTok Sans', 'sans-serif']
+                    },
+                    colors: {
+                        blue: {
+                            500: '#0B74FA',
+                            600: '#0A68E1'
+                        },
+                        subtext: '#525866'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/src/styles/input.css">
+    <script type="module" src="/src/js/main.js"></script>
+</head>
+<body class="bg-white font-sans">
+    <main>
+        <!-- Navigation Header -->
+        <header class="flex items-center justify-between px-6 py-4 lg:px-16">
+            <div class="flex items-center gap-2">
+                <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500">
+                    <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                    </svg>
+                </div>
+                <span class="text-lg sm:text-2xl font-medium text-gray-900">EMA Homes & Management</span>
+            </div>
+
+                            <nav class="hidden items-center gap-8 md:flex">
+            <a href="index.html" class="text-base lg:text-sm font-light text-gray-700 hover:text-gray-900 tracking-[-0.2px]">Home</a>
+            <a href="properties.html" class="text-base lg:text-sm font-light text-gray-700 hover:text-gray-900 tracking-[-0.2px]">Buy</a>
+            <a href="sell.html" class="text-base lg:text-sm font-light text-gray-700 hover:text-gray-900 tracking-[-0.2px]">Sell</a>
+            <a href="#" class="text-base lg:text-sm font-light text-gray-700 hover:text-gray-900 tracking-[-0.2px]">Invest</a>
+            <a href="faq.html" class="text-base lg:text-sm font-light text-gray-700 hover:text-gray-900 tracking-[-0.2px]">FAQ</a>
+            <a href="contact.html" class="text-base lg:text-sm font-light text-gray-700 hover:text-gray-900 tracking-[-0.2px]">Contact</a>
+        </nav>
+
+            <a href="sell.html" class="hidden md:block rounded-full bg-blue-500 px-4 py-2.5 text-white hover:bg-blue-600 transition-colors font-medium text-sm">
+                Contact an Agent
+            </a>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-btn" class="md:hidden">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-6 py-4">
+                    <nav class="flex flex-col gap-4">
+            <a href="index.html" class="text-base font-light text-gray-700 tracking-[-0.2px]">Home</a>
+                        <a href="properties.html" class="text-base font-light text-gray-700 tracking-[-0.2px]">Buy</a>
+            <a href="sell.html" class="text-base font-light text-gray-700 tracking-[-0.2px]">Sell</a>
+            <a href="#" class="text-base font-light text-gray-700 tracking-[-0.2px]">Invest</a>
+            <a href="faq.html" class="text-base font-light text-gray-700 tracking-[-0.2px]">FAQ</a>
+            <a href="contact.html" class="text-base font-light text-gray-700 tracking-[-0.2px]">Contact</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <main class="mt-8 lg:mt-16">
+            <div class="px-6 lg:px-16">
+                <!-- Hero Section -->
+                <div class="grid gap-y-4 lg:grid-cols-5 lg:gap-16">
+                    <!-- Left Column - Main Heading with Dots -->
+                    <div class="relative flex flex-col justify-center lg:col-span-3">
+                        <!-- Blue Dots Pattern -->
+                        <div class="absolute -left-8 top-0 grid grid-cols-6 gap-2 opacity-60">
+                            <div class="dot-pattern"></div>
+                        </div>
+
+                        <h1 class="text-[34px] lg:text-[56px] font-medium leading-tight lg:leading-[68px] text-gray-900 tracking-[-0.5px]">
+                            Discover Your <br class="lg:hidden">Dream Home with EMA Homes & Management
+                        </h1>
+                    </div>
+
+                    <!-- Right Column - Description and Buttons -->
+                    <div class="flex flex-col space-y-6 lg:col-span-2">
+                        <p class="leading-relaxed tracking-[-0.2px]" style="color: #525866;">
+                            Whether you're looking for a cozy apartment, a luxurious villa, or a family-friendly house, we've got you covered.
+                        </p>
+
+                        <div class="flex justify-center lg:justify-start gap-2 sm:gap-4">
+                            <a href="properties.html" class="rounded-full bg-blue-500 px-4 sm:px-8 py-3 text-sm sm:text-base text-white hover:bg-blue-600 transition-colors whitespace-nowrap">
+                                Explore Properties
+                            </a>
+                            <a href="sell.html" class="rounded-full border-2 border-blue-500 px-4 sm:px-8 py-3 text-sm sm:text-base text-blue-500 hover:bg-blue-50 bg-transparent transition-colors whitespace-nowrap">
+                                Talk to an Agent
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                        <!-- Hero Image -->
+            <div class="mt-8 lg:mt-10 relative">
+                <div class="relative h-[400px] w-full overflow-hidden rounded-3xl lg:h-[500px]">
+                    <img src="image.webp" alt="Colorful houses with red house in center, surrounded by trees" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Search Bar Overlay - Outside image container -->
+                <div class="absolute -bottom-32 left-6 right-6 lg:-bottom-16 lg:left-16 lg:right-16 z-50">
+                    <div class="bg-white rounded-2xl p-4 lg:p-6 shadow-lg search-bar-container" style="box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);">
+                        <div class="flex flex-col gap-4 lg:flex-row lg:items-center">
+                            <!-- Mobile: Search Input and Button First -->
+                            <div class="flex flex-col gap-3 lg:hidden">
+                                <div class="flex gap-3">
+                                    <input 
+                                        type="text" 
+                                        id="homepage-search-mobile"
+                                        placeholder="Search location or property name"
+                                        class="flex-1 bg-transparent border-none text-gray-900 placeholder-gray-500 text-sm focus:outline-none font-light tracking-[-0.2px]"
+                                    />
+                                    <button id="homepage-search-btn-mobile" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2.5 rounded-full font-medium text-sm transition-colors whitespace-nowrap">
+                                        Search
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Mobile: Dropdowns Below -->
+                            <div class="flex flex-col gap-3 lg:hidden">
+                                <!-- Property Location Dropdown -->
+                                <div class="relative">
+                                    <select id="homepage-location-mobile" class="w-full bg-transparent border-none text-gray-900 font-light text-sm focus:outline-none appearance-none cursor-pointer pr-8 tracking-[-0.2px]">
+                                        <option value="">Property Location</option>
+                                        <option value="California">California</option>
+                                        <option value="New York">New York</option>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="Florida">Florida</option>
+                                        <option value="Texas">Texas</option>
+                                        <option value="Turkey">Turkey</option>
+                                        <option value="Greece">Greece</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Tennessee">Tennessee</option>
+                                    </select>
+                                    <svg class="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                                
+                                <!-- Property Type Dropdown -->
+                                <div class="relative">
+                                    <select id="homepage-type-mobile" class="w-full bg-transparent border-none text-gray-900 font-light text-sm focus:outline-none appearance-none cursor-pointer pr-8 tracking-[-0.2px]">
+                                        <option value="">Property Type</option>
+                                        <option value="House">House</option>
+                                        <option value="Single-Family">Single-Family</option>
+                                        <option value="Multi-Family">Multi-Family</option>
+                                        <option value="Apartment">Apartment</option>
+                                        <option value="Condo">Condo</option>
+                                        <option value="Villa">Villa</option>
+                                    </select>
+                                    <svg class="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                                
+                                <!-- Property Category Dropdown -->
+                                <div class="relative">
+                                    <select id="homepage-category-mobile" class="w-full bg-transparent border-none text-gray-900 font-light text-sm focus:outline-none appearance-none cursor-pointer pr-8 tracking-[-0.2px]">
+                                        <option value="">Property Category</option>
+                                        <option value="For Sale">For Sale</option>
+                                        <option value="For Rent">For Rent</option>
+                                        <option value="New Development">New Development</option>
+                                    </select>
+                                    <svg class="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <!-- Desktop: Original Horizontal Layout -->
+                            <div class="hidden lg:flex lg:items-center lg:gap-4 lg:w-full">
+                                <!-- Property Location Dropdown -->
+                                <div class="relative flex-1">
+                                    <select id="homepage-location" class="w-full bg-transparent border-none text-gray-900 font-light text-sm focus:outline-none appearance-none cursor-pointer pr-8 tracking-[-0.2px]">
+                                        <option value="">Property Location</option>
+                                        <option value="California">California</option>
+                                        <option value="New York">New York</option>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="Florida">Florida</option>
+                                        <option value="Texas">Texas</option>
+                                        <option value="Turkey">Turkey</option>
+                                        <option value="Greece">Greece</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Tennessee">Tennessee</option>
+                                    </select>
+                                    <svg class="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                                
+                                <!-- Separator -->
+                                <div class="w-px h-6 bg-gray-200"></div>
+                                
+                                <!-- Property Type Dropdown -->
+                                <div class="relative flex-1">
+                                    <select id="homepage-type" class="w-full bg-transparent border-none text-gray-900 font-light text-sm focus:outline-none appearance-none cursor-pointer pr-8 tracking-[-0.2px]">
+                                        <option value="">Property Type</option>
+                                        <option value="House">House</option>
+                                        <option value="Single-Family">Single-Family</option>
+                                        <option value="Multi-Family">Multi-Family</option>
+                                        <option value="Apartment">Apartment</option>
+                                        <option value="Condo">Condo</option>
+                                        <option value="Villa">Villa</option>
+                                    </select>
+                                    <svg class="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                                
+                                <!-- Separator -->
+                                <div class="w-px h-6 bg-gray-200"></div>
+                                
+                                <!-- Property Category Dropdown -->
+                                <div class="relative flex-1">
+                                    <select id="homepage-category" class="w-full bg-transparent border-none text-gray-900 font-light text-sm focus:outline-none appearance-none cursor-pointer pr-8 tracking-[-0.2px]">
+                                        <option value="">Property Category</option>
+                                        <option value="For Sale">For Sale</option>
+                                        <option value="For Rent">For Rent</option>
+                                        <option value="New Development">New Development</option>
+                                    </select>
+                                    <svg class="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                                
+                                <!-- Separator -->
+                                <div class="w-px h-6 bg-gray-200"></div>
+                                
+                                <!-- Search Input -->
+                                <div class="flex-[2]">
+                                    <input 
+                                        type="text" 
+                                        id="homepage-search"
+                                        placeholder="Search location or property name"
+                                        class="w-full bg-transparent border-none text-gray-900 placeholder-gray-500 text-sm focus:outline-none font-light tracking-[-0.2px]"
+                                    />
+                                </div>
+                                
+                                <!-- Search Button -->
+                                <button id="homepage-search-btn" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium text-sm transition-colors whitespace-nowrap">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Top Picks Section -->
+            <section class="mt-56 lg:mt-48">
+                <div class="px-6 lg:px-16">
+                    <div class="text-center mb-16">
+                        <h2 class="text-[30px] lg:text-5xl font-medium text-gray-900 mb-4 tracking-[-0.5px]">Discover Our Top Picks</h2>
+                        <p class="leading-relaxed tracking-[-0.2px] max-w-2xl mx-auto" style="color: #525866;">
+                            Our featured properties showcase the best of what EMA Homes & Management has to offer, combining luxury, comfort, and exceptional value.
+                        </p>
+                    </div>
+
+                    <div id="top-picks-listings" class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+                        <!-- Property listings will be dynamically injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Elevate Your Living Experience Section -->
+            <section class="mt-20 lg:mt-32 bg-[#F6F8FA] py-8 lg:py-12">
+                            <div class="px-6 lg:px-16">
+                <div class="mb-8 lg:mb-16">
+                    <div class="max-w-4xl">
+                        <h2 class="text-[30px] lg:text-5xl font-medium text-gray-900 mb-6 tracking-[-0.5px]">Elevate Your Living Experience</h2>
+                    </div>
+                    <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                        <p class="leading-relaxed tracking-[-0.2px] max-w-2xl" style="color: #525866;">
+                        Our properties are carefully selected to offer an array of top-notch amenities that cater to your lifestyle needs and enhance your living experience.
+                    </p>
+                        <a href="properties.html" class="rounded-full border-2 border-blue-500 px-8 py-3 text-blue-500 hover:bg-blue-50 bg-transparent hidden lg:flex items-center transition-colors whitespace-nowrap">
+                            See All Properties
+                        </a>
+                    </div>
+            </div>
+
+                <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 relative">
+                    <!-- Amenity Cards -->
+                    <div class="space-y-2">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></svg>
+                        </div>
+                        <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Fitness Centers</h3>
+                        <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Stay fit and healthy with access to fully equipped fitness centers.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M19 5a2 2 0 0 0-2 2v11"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M7 13h10"/><path d="M7 9h10"/><path d="M9 5a2 2 0 0 0-2 2v11"/></svg>
+                        </div>
+                        <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Resort-Style Swimming Pools</h3>
+                        <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Take a dip in our resort-style swimming pools, perfect for relaxation and recreation.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M2 12h20"/><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><path d="m4 8 16-4"/><path d="m8.86 6.78-.45-1.81a2 2 0 0 1 1.45-2.43l1.94-.48a2 2 0 0 1 2.43 1.46l.45 1.8"/></svg>
+                        </div>
+                        <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Modern Gourmet Kitchens</h3>
+                        <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Our properties boast gourmet kitchens designed for both functionality and style.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg>
+                        </div>
+                            <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Pet-Friendly Communities</h3>
+                            <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Many of our properties offer pet-friendly amenities such as dog parks, etc.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>
+                        </div>
+                        <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Luxurious Spa Facilities</h3>
+                        <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Indulge in ultimate relaxation with access to luxurious spa facilities.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M9.5 13.866a4 4 0 0 1 5 .01"/><path d="M12 17h.01"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M7 10.754a8 8 0 0 1 10 0"/></svg>
+                        </div>
+                        <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Advanced Home Automation</h3>
+                        <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Experience the convenience of smart home technology and automation.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Community Social Spaces</h3>
+                        <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Foster a sense of community with access to beautifully designed social spaces.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+                        </div>
+                        <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Secure and Convenient Parking</h3>
+                        <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Our properties offer secure and convenient parking solutions.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"/><path d="M7 16v6"/><path d="M13 19v3"/><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"/></svg>
+                        </div>
+                        <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Green Living Initiatives</h3>
+                        <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">We are extremely committed to sustainability and green living initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Our Listings Section -->
+        <section class="mt-20 lg:mt-32">
+            <div class="px-6 lg:px-16">
+                <div class="mb-8 lg:mb-16">
+                    <div class="max-w-4xl">
+                        <h2 class="text-[30px] lg:text-5xl font-medium text-gray-900 mb-6 tracking-[-0.5px]">Explore Our Listings</h2>
+                    </div>
+                    <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                        <p class="leading-relaxed tracking-[-0.2px] max-w-2xl" style="color: #525866;">
+                            From chic city apartments to spacious suburban homes, EMA Homes & Management offers an extensive selection of listings that cater to every lifestyle and budget.
+                        </p>
+                        <a href="properties.html" class="rounded-full border-2 border-blue-500 px-8 py-3 text-blue-500 hover:bg-blue-50 bg-transparent hidden lg:flex items-center transition-colors whitespace-nowrap">
+                            See All Properties
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Content will be added here -->
+                <div id="explore-listings" class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+                    <!-- Property listings will be dynamically injected here -->
+                </div>
+
+                <!-- View All Listings Button -->
+                <div class="flex justify-center mt-12">
+                    <a href="properties.html" class="rounded-full bg-blue-500 px-8 py-3 text-white hover:bg-blue-600 transition-colors font-medium text-base">
+                        View All Properties
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The EMA Homes & Management Advantage Section -->
+        <section class="mt-20 lg:mt-32 relative">
+            <div class="px-6 lg:px-16 flex flex-col lg:block">
+                <!-- Image positioned to overlap -->
+                <div class="relative z-10 order-2 lg:absolute lg:right-32 lg:-top-10 lg:w-[30rem] mb-8 lg:mb-0">
+                    <div class="rounded-b-2xl lg:rounded-2xl overflow-hidden shadow-xl">
+                        <img src="image4.webp" alt="Modern luxury home exterior" class="w-full h-80 lg:h-[36rem] object-cover object-top">
+                    </div>
+                </div>
+                
+                <!-- Blue background section -->
+                <div class="bg-blue-500 rounded-t-3xl lg:rounded-3xl p-8 lg:p-12 lg:pt-20 lg:pr-[32rem] order-1 lg:order-none">
+                    <div class="text-white">
+                        <h2 class="text-[27px] lg:text-5xl font-medium mb-4 lg:mb-6 tracking-[-0.5px]">The EMA Homes & Management Advantage</h2>
+                        <p class="text-blue-200 mb-8 leading-relaxed tracking-[-0.2px]">
+                            Choosing EMA Homes & Management means opting for quality, reliability, and<br class="hidden lg:block"> exceptional service. Our commitment to transparency and <br> customer satisfaction sets us apart.
+                        </p>
+
+                        <div class="space-y-4 lg:space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-6 h-6 bg-blue-500 border-2 border-white rounded-full flex items-center justify-center mt-1">
+                                    <svg class="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-xl mb-2 tracking-[-0.5px]">Extensive Listings</h3>
+                                    <p class="text-blue-200 leading-relaxed tracking-[-0.2px]">Access a vast selection of properties to find your perfect match.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-6 h-6 bg-blue-500 border-2 border-white rounded-full flex items-center justify-center mt-1">
+                                    <svg class="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-xl mb-2 tracking-[-0.5px]">Expert Guidance</h3>
+                                    <p class="text-blue-200 leading-relaxed tracking-[-0.2px]">Our experienced real estate agents are here to assist you every<br>step of the way.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-6 h-6 bg-blue-500 border-2 border-white rounded-full flex items-center justify-center mt-1">
+                                    <svg class="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-xl mb-2 tracking-[-0.5px]">Market Insights</h3>
+                                    <p class="text-blue-200 leading-relaxed tracking-[-0.2px]">Stay informed with the latest market trends and property values.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-6 h-6 bg-blue-500 border-2 border-white rounded-full flex items-center justify-center mt-1">
+                                    <svg class="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-xl mb-2 tracking-[-0.5px]">User-Friendly Interface</h3>
+                                    <p class="text-blue-200 leading-relaxed tracking-[-0.2px]">Enjoy a seamless and intuitive browsing experience.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section class="mt-20 lg:mt-32 relative">
+            <div class="px-6 lg:px-16">
+                <div class="mb-8 lg:mb-4">
+                    <span class="text-blue-500 font-normal text-lg lg:text-sm tracking-wider uppercase">ABOUT US</span>
+                </div>
+
+                <div class="mb-12 lg:mb-8">
+                    <p class="text-xl lg:text-[26px] text-gray-900 leading-relaxed lg:leading-snug xl:leading-normal max-w-5xl font-medium tracking-[-0.2px]">
+                        Established with a passion for real estate and a commitment to excellence, EMA Homes & Management is dedicated to providing unparalleled service and expertise to our clients. Our mission is to simplify the property search process and solutions that cater to your unique needs.
+                    </p>
+                </div>
+
+                <div class="grid gap-12 lg:grid-cols-2 items-start">
+                    <div class="flex flex-col items-center gap-6 lg:gap-8 lg:flex-row lg:justify-between lg:items-start">
+                        <div>
+                            <div class="text-[30px] lg:text-4xl xl:text-5xl font-medium lg:font-medium text-gray-900 mb-4 lg:mb-2 flex items-baseline">
+                                <span class="counter font-medium lg:font-medium" data-target="100000">0</span><span class="text-blue-500 font-medium lg:font-medium ml-1">+</span>
+                            </div>
+                            <div class="leading-relaxed tracking-[-0.2px] text-lg lg:text-base" style="color: #525866;">Homes Purchased</div>
+                        </div>
+
+                        <div>
+                            <div class="text-[30px] lg:text-4xl xl:text-5xl font-medium lg:font-medium text-gray-900 mb-4 lg:mb-2 flex items-baseline">
+                                <span class="counter font-medium lg:font-medium" data-target="200">0</span><span class="text-blue-500 font-medium lg:font-medium ml-1">+</span>
+                            </div>
+                            <div class="leading-relaxed tracking-[-0.2px] text-lg lg:text-base" style="color: #525866;">Agents</div>
+                        </div>
+
+                        <div>
+                            <div class="text-[30px] lg:text-4xl xl:text-5xl font-medium lg:font-medium text-gray-900 mb-4 lg:mb-2 flex items-baseline">
+                                <span class="counter font-medium lg:font-medium" data-target="80000">0</span><span class="text-blue-500 font-medium lg:font-medium ml-1">+</span>
+                            </div>
+                            <div class="leading-relaxed tracking-[-0.2px] text-lg lg:text-base" style="color: #525866;">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Our Clients Say Section -->
+        <section class="mt-16 lg:mt-32 bg-[#F6F8FA] py-16 lg:py-24">
+            <div class="px-6 lg:px-16">
+                <!-- Section Header -->
+                <div class="text-center mb-8 lg:mb-12">
+                    <h2 class="text-[30px] lg:text-5xl font-medium text-gray-900 mb-4 tracking-[-0.5px]">What Our Clients Say</h2>
+                    <p class="leading-relaxed tracking-[-0.2px] max-w-xl mx-auto" style="color: #525866;">
+                        From chic city apartments to spacious suburban homes, EMA Homes & Management offers an extensive selection of listings that cater to every lifestyle and budget.                    </p>
+                </div>
+
+                <!-- Testimonial Slider -->
+                <div class="relative">
+                    <div class="testimonial-slider-container overflow-x-hidden">
+                        <div class="testimonial-track flex transition-transform duration-300 ease-in-out">
+                            <!-- Testimonial Card 1 -->
+                            <div class="testimonial-slide w-full lg:w-[70%] flex-shrink-0">
+                                <div class="px-2 lg:px-4">
+                                    <div class="testimonial-card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row max-w-3xl mx-auto transition-all duration-300">
+                                        <div class="w-full lg:w-3/5 p-5 lg:p-6 flex flex-col justify-center order-2 lg:order-1">
+                                            <blockquote class="text-base lg:text-lg text-gray-900 mb-5 italic leading-relaxed tracking-[-0.2px]">
+                                                "The team at EMA Homes & Management went above and beyond to help me find the perfect property. Their knowledge of the market is impressive, and their dedication is unmatched."
+                                            </blockquote>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                                    <span class="text-white font-medium text-sm">SL</span>
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium text-gray-900 text-sm">Sarah Lui</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full lg:w-2/5 h-40 lg:h-56 relative order-1 lg:order-2 p-3">
+                                            <div class="w-full h-full rounded-xl overflow-hidden">
+                                                <img src="image.webp" alt="Modern interior" class="w-full h-full object-cover">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial Card 2 -->
+                            <div class="testimonial-slide w-full lg:w-[70%] flex-shrink-0">
+                                <div class="px-2 lg:px-4">
+                                    <div class="testimonial-card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row max-w-3xl mx-auto transition-all duration-300">
+                                        <div class="w-full lg:w-3/5 p-5 lg:p-6 flex flex-col justify-center order-2 lg:order-1">
+                                            <blockquote class="text-base lg:text-lg text-gray-900 mb-5 italic leading-relaxed tracking-[-0.2px]">
+                                                "Exceptional service and attention to detail. EMA Homes & Management made our home buying experience smooth and stress-free. Highly recommend their professional team."
+                                            </blockquote>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                                    <span class="text-white font-medium text-sm">MJ</span>
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium text-gray-900 text-sm">Michael Johnson</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full lg:w-2/5 h-40 lg:h-56 relative order-1 lg:order-2 p-3">
+                                            <div class="w-full h-full rounded-xl overflow-hidden">
+                                                <img src="image5.webp" alt="Living room interior" class="w-full h-full object-cover">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial Card 3 -->
+                            <div class="testimonial-slide w-full lg:w-[70%] flex-shrink-0">
+                                <div class="px-2 lg:px-4">
+                                    <div class="testimonial-card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row max-w-3xl mx-auto transition-all duration-300">
+                                        <div class="w-full lg:w-3/5 p-5 lg:p-6 flex flex-col justify-center order-2 lg:order-1">
+                                            <blockquote class="text-base lg:text-lg text-gray-900 mb-5 italic leading-relaxed tracking-[-0.2px]">
+                                                "Professional, reliable, and incredibly knowledgeable. EMA Homes & Management helped us navigate the complex real estate market with ease. Couldn't be happier with our new home!"
+                                            </blockquote>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                                    <span class="text-white font-medium text-sm">ED</span>
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium text-gray-900 text-sm">Emma Davis</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full lg:w-2/5 h-40 lg:h-56 relative order-1 lg:order-2 p-3">
+                                            <div class="w-full h-full rounded-xl overflow-hidden">
+                                                <img src="image2.webp" alt="Beautiful home exterior" class="w-full h-full object-cover">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial Card 4 -->
+                            <div class="testimonial-slide w-full lg:w-[70%] flex-shrink-0">
+                                <div class="px-2 lg:px-4">
+                                    <div class="testimonial-card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row max-w-3xl mx-auto transition-all duration-300">
+                                        <div class="w-full lg:w-3/5 p-5 lg:p-6 flex flex-col justify-center order-2 lg:order-1">
+                                            <blockquote class="text-base lg:text-lg text-gray-900 mb-5 italic leading-relaxed tracking-[-0.2px]">
+                                                "Outstanding customer service from start to finish. The EMA Homes & Management team made selling our home effortless and got us the best possible price. Truly exceptional!"
+                                            </blockquote>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                                    <span class="text-white font-medium text-sm">DW</span>
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium text-gray-900 text-sm">David Wilson</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full lg:w-2/5 h-40 lg:h-56 relative order-1 lg:order-2 p-3">
+                                            <div class="w-full h-full rounded-xl overflow-hidden">
+                                                <img src="image3.webp" alt="Luxury apartment" class="w-full h-full object-cover">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial Card 5 -->
+                            <div class="testimonial-slide w-full lg:w-[70%] flex-shrink-0">
+                                <div class="px-2 lg:py-4">
+                                    <div class="testimonial-card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row max-w-3xl mx-auto transition-all duration-300">
+                                        <div class="w-full lg:w-3/5 p-5 lg:p-6 flex flex-col justify-center order-2 lg:order-1">
+                                            <blockquote class="text-base lg:text-lg text-gray-900 mb-5 italic leading-relaxed tracking-[-0.2px]">
+                                                "EMA Homes & Management found us the perfect family home in our dream neighborhood. Their attention to detail and personalized approach made all the difference. Highly recommended!"
+                                            </blockquote>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                                    <span class="text-white font-medium text-sm">JT</span>
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium text-gray-900 text-sm">Jessica Taylor</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full lg:w-2/5 h-40 lg:h-56 relative order-1 lg:order-2 p-3">
+                                            <div class="w-full h-full rounded-xl overflow-hidden">
+                                                <img src="image4.webp" alt="Family home" class="w-full h-full object-cover">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial Card 6 -->
+                            <div class="testimonial-slide w-full lg:w-[70%] flex-shrink-0">
+                                <div class="px-2 lg:px-4">
+                                    <div class="testimonial-card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row max-w-3xl mx-auto transition-all duration-300">
+                                        <div class="w-full lg:w-3/5 p-5 lg:p-6 flex flex-col justify-center order-2 lg:order-1">
+                                            <blockquote class="text-base lg:text-lg text-gray-900 mb-5 italic leading-relaxed tracking-[-0.2px]">
+                                                "First-time home buyers and couldn't be happier with our choice to work with EMA Homes & Management. They guided us through every step and made our dream home a reality!"
+                                            </blockquote>
+                                            <div class="flex items-center gap-3">
+                                                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                                                    <span class="text-white font-medium text-sm">AB</span>
+                                                </div>
+                                                <div>
+                                                    <div class="font-medium text-gray-900 text-sm">Alex Brown</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="w-full lg:w-2/5 h-40 lg:h-56 relative order-1 lg:order-2 p-3">
+                                            <div class="w-full h-full rounded-xl overflow-hidden">
+                                                <img src="image.webp" alt="Dream home" class="w-full h-full object-cover">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="flex justify-center items-center gap-4 mt-8">
+                    <button class="testimonial-prev glass-blur rounded-full p-3 transition-all duration-300">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="testimonial-next glass-blur rounded-full p-3 transition-all duration-300">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ready to Find Your Dream Home Section -->
+        <section class="mt-16 lg:mt-20">
+            <div class="px-6 lg:px-16">
+                <div class="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-12">
+                    <!-- Text Content -->
+                    <div class="flex-1 text-left">
+                        <h2 class="text-[30px] lg:text-5xl font-medium text-gray-900 mb-6 tracking-[-0.5px]">Ready to Find Your Dream Home?</h2>
+                        <p class="leading-relaxed tracking-[-0.2px] max-w-2xl mb-6" style="color: #525866;">
+                            Start your journey with EMA Homes & Management today! Sign up for free and get instant access to the best property listings.
+                        </p>
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full font-medium transition-colors">
+                            Get Started
+                        </button>
+                    </div>
+                    
+                    <!-- Images -->
+                    <div class="flex-1 flex gap-2 lg:gap-3 -mb-8 lg:-mb-16">
+                        <div class="flex-1">
+                            <img src="image6.webp" alt="Modern building exterior" class="w-full h-[200px] lg:h-[300px] xl:h-[330px] object-cover rounded-2xl -mt-[30px] lg:-mt-[40px] xl:-mt-[50px]">
+                        </div>
+                        <div class="flex-1">
+                            <img src="image7.webp" alt="Luxury interior" class="w-full h-[140px] lg:h-[200px] xl:h-[220px] object-cover rounded-2xl mt-[30px] lg:mt-[40px] xl:mt-[50px]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <!-- Footer -->
+    <footer class="mt-20 lg:mt-32">
+        <!-- Newsletter Section -->
+        <div class="px-6 lg:px-16 py-16" style="background-color: #0B74FA;">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid gap-8 lg:grid-cols-2 items-center">
+                    <div>
+                        <h2 class="text-[30px] lg:text-5xl font-medium text-white mb-4 tracking-[-0.5px]">
+                            Receive new property listings straight in your inbox
+                        </h2>
+                    </div>
+                    <div class="flex flex-col gap-4 items-start lg:items-end">
+                        <div class="flex flex-col gap-2 justify-start lg:justify-end">
+                            <p class="text-white text-[15px] font-light tracking-[-0.2px]">Subscribe to our newsletter</p>
+                            <div class="flex gap-3">
+                                <input
+                                    type="email"
+                                    placeholder="Your email"
+                                    id="newsletter-email"
+                                    class="w-48 lg:w-64 bg-white/10 border border-white/20 text-white placeholder:text-blue-200 focus:border-white rounded-full px-3 lg:px-4 py-2 lg:py-3 focus:outline-none"
+                                />
+                                <button id="newsletter-submit" class="bg-white text-blue-500 hover:bg-gray-100 px-4 lg:px-6 py-2 lg:py-3 rounded-full transition-colors leading-relaxed tracking-[-0.2px] whitespace-nowrap">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 pt-8 border-t border-white/20 flex items-center justify-between flex-wrap gap-8">
+                    <div class="flex items-center gap-3">
+                        <div class="flex h-8 w-8 lg:h-10 lg:w-10 items-center justify-center rounded-lg bg-white/10">
+                            <svg class="h-4 w-4 lg:h-6 lg:w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                            </svg>
+                        </div>
+                        <span class="text-lg lg:text-2xl font-bold text-white">EMA Homes & Management</span>
+                    </div>
+                    <div class="flex items-center gap-8 text-blue-100 flex-wrap">
+                        <div class="flex items-center gap-2">
+                            <span>Email us:</span>
+                            <span class="text-white font-medium">support@emamarthomes.net</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="mt-12">
+                    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+                        <!-- Main Pages -->
+                        <div>
+                            <h3 class="text-white font-medium text-lg mb-6 tracking-[-0.5px]">Main Pages</h3>
+                            <div class="space-y-4">
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Homepage</a>
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">About Us</a>
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Agents</a>
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Agent Single</a>
+                                <a href="faq.html" class="block text-blue-200 hover:text-white transition-colors">FAQs</a>
+                                <a href="contact.html" class="block text-blue-200 hover:text-white transition-colors">Contact Us</a>
+                            </div>
+                        </div>
+
+                        <!-- Properties -->
+                        <div>
+                            <h3 class="text-white font-medium text-lg mb-6 tracking-[-0.5px]">Properties</h3>
+                            <div class="space-y-4">
+                                <a href="sell.html" class="block text-blue-200 hover:text-white transition-colors">Post a Property</a>
+                                <a href="properties.html" class="block text-blue-200 hover:text-white transition-colors">Properties</a>
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Property Single</a>
+                                <a href="properties.html" class="block text-blue-200 hover:text-white transition-colors">Properties by Type</a>
+                                <a href="properties.html" class="block text-blue-200 hover:text-white transition-colors">Properties by Location</a>
+                                <a href="properties.html" class="block text-blue-200 hover:text-white transition-colors">Properties by Category</a>
+                            </div>
+                        </div>
+
+                        <!-- Blog & Pricing -->
+                        <div>
+                            <h3 class="text-white font-medium text-lg mb-6 tracking-[-0.5px]">Blog & Pricing</h3>
+                            <div class="space-y-4">
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Blogs</a>
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Blog Category</a>
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Blog Single</a>
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Pricing</a>
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Pricing (without e-commerce)</a>
+                                <a href="#" class="block text-blue-200 hover:text-white transition-colors">Pricing Single</a>
+                            </div>
+                        </div>
+
+                        <!-- Legal -->
+                        <div>
+                            <h3 class="text-white font-medium text-lg mb-6 tracking-[-0.5px]">Legal</h3>
+                            <div class="space-y-4">
+                                <a href="terms-of-service.html" class="block text-blue-200 hover:text-white transition-colors">Terms of Service</a>
+                                <a href="privacy-policy.html" class="block text-blue-200 hover:text-white transition-colors">Privacy Policy</a>
+                            </div>
+                        </div>
+
+                        <!-- Contact -->
+                        <div>
+                            <h3 class="text-white font-medium text-lg mb-6 tracking-[-0.5px]">Contact</h3>
+                            <div class="space-y-4">
+                                <a href="mailto:support@emamarthomes.net" class="block text-blue-200 hover:text-white transition-colors">support@emamarthomes.net</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </main>
+
+</body>
+</html>
+

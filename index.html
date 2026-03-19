@@ -3,119 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Martin Henderson — Fan Meet &amp; Greet</title>
+    <title>Martin Henderson — Official Fan Site</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              blue: {
+                500: '#0B74FA',
+                600: '#0A68E1'
+              },
+              subtext: '#525866'
+            }
+          }
+        }
+      }
+    </script>
 
     <style>
-      @font-face {
-        font-family: "LayGrotesk";
-        src: url("/assets/LayGrotesk_Medium.woff") format("woff");
-        font-style: normal;
-        font-display: swap;
-      }
-
       :root {
-        --nav-bg: #EBEBEB;
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
 
-      html,
-      body {
-        font-family: "LayGrotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+      html, body {
+        font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
           Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       }
 
-      @keyframes carousel-left {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
+      .hero-gradient {
+        background: radial-gradient(ellipse 75% 55% at 20% 8%, rgba(11,116,250,0.10) 0%, transparent 60%),
+          radial-gradient(ellipse 70% 60% at 85% 20%, rgba(11,116,250,0.08) 0%, transparent 58%);
       }
 
-      @keyframes carousel-right {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(50%);
-        }
+      .testimonial-slide:not(.active) .testimonial-card {
+        filter: blur(4px);
+        -webkit-filter: blur(4px);
       }
-
-      @media (min-width: 768px) {
-        .carousel-row {
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-        }
-
-        .carousel-row-left {
-          animation-name: carousel-left;
-        }
-
-        .carousel-row-right {
-          animation-name: carousel-right;
-        }
+      .testimonial-slide.active .testimonial-card {
+        filter: blur(0);
+        -webkit-filter: blur(0);
+      }
+      .testimonial-card {
+        transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+      }
+      .glass-blur {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(25px) saturate(200%) brightness(120%);
+        -webkit-backdrop-filter: blur(25px) saturate(200%) brightness(120%);
       }
     </style>
   </head>
 
-  <body class="min-h-screen bg-white text-black">
-    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-[24px] md:px-[300px] pt-[14px]">
-      <div
-        class="w-full flex items-center justify-between px-4"
-        style="max-width: 1251.58px; height: 42px; background-color: var(--nav-bg); border-radius: 1000px"
-      >
-        <div class="flex items-center gap-3">
-          <span class="text-[15px] leading-[21px] text-black">Martin Henderson</span>
-        </div>
+  <body class="min-h-screen bg-white text-gray-900">
 
-        <div class="hidden md:flex gap-[8px] items-center">
-          <a
-            href="/booking"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
-            >Bookings</a
-          >
-          <a
-            href="/meet-and-greet"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
-            >Meet and Greet</a
-          >
-          <a
-            href="/fan-card"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
-            >Fan Card</a
-          >
-          <a
-            href="/report-scam"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
-            >Report Scam</a
-          >
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-5 md:px-8 pt-4">
+      <div
+        class="w-full flex items-center justify-between px-5 max-w-[1100px] border border-gray-200 shadow-sm"
+        style="height: 48px; background: #ffffff; border-radius: 1000px"
+      >
+        <a href="/" class="text-[15px] leading-[21px] text-gray-900 font-medium tracking-tight">Martin Henderson</a>
+
+        <div class="hidden md:flex gap-1 items-center">
+          <a href="/booking" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Bookings</a>
+          <a href="/meet-and-greet" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Meet &amp; Greet</a>
+          <a href="/fan-card" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Fan Card</a>
+          <a href="/report-scam" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Report Scam</a>
         </div>
 
         <button
           type="button"
-          class="md:hidden px-3 py-2 rounded-[1000px]"
+          class="md:hidden p-2 rounded-full text-gray-700 hover:text-gray-900"
           aria-label="Open menu"
           aria-controls="mobileMenu"
           aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -124,178 +96,476 @@
       </div>
     </nav>
 
+    <!-- MOBILE MENU -->
     <div id="mobileMenuOverlay" class="fixed inset-0 z-40 hidden" aria-hidden="true">
-      <button
-        class="absolute inset-0 bg-black/30"
-        type="button"
-        aria-label="Close menu overlay"
-        onclick="closeMobileMenu()"
-      ></button>
-
-      <div class="relative flex justify-center px-[24px] md:px-[300px] pt-[72px]">
+      <button class="absolute inset-0 bg-black/50 backdrop-blur-sm" type="button" aria-label="Close menu" onclick="closeMobileMenu()"></button>
+      <div class="relative flex justify-center px-5 pt-[72px]">
         <div
           id="mobileMenu"
-          class="w-full px-4 py-4"
-          style="max-width: 1251.58px; background-color: var(--nav-bg); border-radius: 24px"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile navigation"
+          class="w-full max-w-[500px] px-2 py-3 border border-gray-200 shadow-2xl"
+          style="background: #ffffff; border-radius: 20px"
+          role="dialog" aria-modal="true" aria-label="Mobile navigation"
         >
-          <div class="flex flex-col gap-0">
-            <a
-              href="/meet-and-greet"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
-              onclick="closeMobileMenu()"
-              >Bookings</a
-            >
-            <a
-              href="/meet-and-greet"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
-              onclick="closeMobileMenu()"
-              >Meet and Greet</a
-            >
-            <a
-              href="/fan-card"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
-              onclick="closeMobileMenu()"
-              >Fan Card</a
-            >
-            <a
-              href="/report-scam"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
-              onclick="closeMobileMenu()"
-              >Report Scam</a
-            >
+          <div class="flex flex-col">
+            <a href="/booking" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-white hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Bookings</a>
+            <a href="/meet-and-greet" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-white hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Meet &amp; Greet</a>
+            <a href="/fan-card" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-white hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Fan Card</a>
+            <a href="/report-scam" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-white hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Report Scam</a>
           </div>
         </div>
       </div>
     </div>
 
-    <main class="pt-[90px]">
-      <section class="pt-[130px] pb-[60px] md:pt-[140px] md:pb-[60px] px-[14px] md:px-[300px]">
-        <div class="space-y-6">
-          <p class="text-left text-[21px] leading-[29px]">
-            <span class="text-black">Martin Henderson — </span>
-            <span class="text-zinc-500"
-              >is a New Zealand-born actor best known for his roles in <em>Virgin River</em> (Netflix),
-              <em>Grey's Anatomy</em>, <em>The Ring</em>, <em>Torque</em>, and <em>Premonition</em>.
-              Fans love his charm, charisma, and heartfelt interactions!</span
-            >
-          </p>
+    <main>
 
-          <nav aria-label="Primary actions">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
-              <a
-                href="/booking"
-                class="inline-flex items-center gap-1.5 text-[16px] leading-[21px] text-zinc-500 hover:text-black"
-              >
-                <span class="text-[11px] leading-[16px] opacity-70">1.</span>
-                <span>Bookings</span>
-                <span class="text-sm">↗</span>
-              </a>
+      <!-- ═══════════════════════ HERO ═══════════════════════ -->
+      <section class="hero-gradient pt-[100px] md:pt-[120px] px-5 md:px-8">
+        <div class="max-w-[1100px] mx-auto">
 
-              <a
-                href="/meet-and-greet"
-                class="inline-flex items-center gap-1.5 text-[16px] leading-[21px] text-zinc-500 hover:text-black"
-              >
-                <span class="text-[11px] leading-[16px] opacity-70">2.</span>
-                <span>Schedule for Meet and Greet</span>
-                <span class="text-sm">↗</span>
-              </a>
-
-              <a
-                href="/fan-card"
-                class="inline-flex items-center gap-1.5 text-[16px] leading-[21px] text-zinc-500 hover:text-black"
-              >
-                <span class="text-[11px] leading-[16px] opacity-70">3.</span>
-                <span>Fan Card Application</span>
-                <span class="text-sm">↗</span>
-              </a>
-
-              <a
-                href="/report-scam"
-                class="inline-flex items-center gap-1.5 text-[16px] leading-[21px] text-zinc-500 hover:text-black"
-              >
-                <span class="text-[11px] leading-[16px] opacity-70">4.</span>
-                <span>Report Scam</span>
-                <span class="text-sm">↗</span>
-              </a>
+          <!-- Split layout: heading left, description right -->
+          <div class="grid gap-6 lg:grid-cols-5 lg:gap-16 mb-8 lg:mb-12">
+            <div class="lg:col-span-3 flex flex-col justify-center">
+              <h1 class="text-[36px] leading-[1.1] md:text-[56px] md:leading-[1.05] font-medium tracking-[-0.5px]">
+                Meet <span class="bg-gradient-to-r from-blue-500 via-blue-500 to-blue-600 bg-clip-text text-transparent">Martin Henderson</span> — Up Close &amp; Personal
+              </h1>
             </div>
-          </nav>
+
+            <div class="lg:col-span-2 flex flex-col justify-center space-y-5">
+              <p class="text-[16px] leading-[24px] text-gray-700 tracking-[-0.2px]">
+                New Zealand-born actor best known for <span class="text-blue-500">Virgin River</span>,
+                <span class="text-blue-500">Grey's Anatomy</span>, and
+                <span class="text-blue-500">The Ring</span>.
+                Book a personal meet &amp; greet, request an appearance, or apply for an exclusive fan card.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a href="/meet-and-greet" class="inline-flex items-center gap-2 rounded-full bg-blue-500 px-6 py-3 text-[14px] font-medium text-white hover:bg-blue-600 transition-colors">
+                  Book Meet &amp; Greet
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+                <a href="/booking" class="inline-flex items-center gap-2 rounded-full border-2 border-blue-500 px-6 py-3 text-[14px] text-blue-500 hover:bg-blue-50 transition-colors">
+                  General Booking
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Full-width hero image -->
+          <div class="relative rounded-3xl overflow-hidden border border-gray-200">
+            <img
+              src="/images/mat10.jpg"
+              alt="Martin Henderson"
+              class="w-full h-[320px] md:h-[460px] object-cover object-top"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent"></div>
+          </div>
+
         </div>
       </section>
 
-      <section class="pb-[80px] px-4 md:px-6">
-        <!-- Mobile: static grid, no carousel -->
-        <div class="md:hidden flex flex-wrap gap-1.5">
-          <img src="/images/mat1.jpg" alt="Martin Henderson 1" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat2.jpg" alt="Martin Henderson 2" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat3.jpg" alt="Martin Henderson 3" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat4.jpg" alt="Martin Henderson 4" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat5.jpg" alt="Martin Henderson 5" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat6.jpg" alt="Martin Henderson 6" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="mat7.jpg" alt="Martin Henderson 7" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat8.jpg" alt="Martin Henderson 8" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat9.jpg" alt="Martin Henderson 9" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat10.jpg" alt="Martin Henderson 10" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat11.jpg" alt="Martin Henderson 11" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat12.jpg" alt="Martin Henderson 12" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-          <img src="/images/mat13.jpg" alt="Martin Henderson 13" class="rounded-[18px] h-32 w-[calc(50%-3px)] object-cover" loading="lazy" />
-        </div>
-
-        <!-- Desktop: carousel only -->
-        <div class="hidden md:block space-y-3 md:space-y-4 overflow-hidden">
-          <div class="flex flex-nowrap gap-2 carousel-row carousel-row-left" style="animation-duration: 45s">
-            <div class="flex gap-2">
-              <img src="/images/mat1.jpg" alt="Martin Henderson 1" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat2.jpg" alt="Martin Henderson 2" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat3.jpg" alt="Martin Henderson 3" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat4.jpg" alt="Martin Henderson 4" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat5.jpg" alt="Martin Henderson 5" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat6.jpg" alt="Martin Henderson 6" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="mat7.jpg" alt="Martin Henderson 7" class="rounded-[18px] h-40 object-cover" loading="lazy" />
+      <!-- Elevate Your Fan Experience Section -->
+      <section class="mt-20 lg:mt-32 bg-white py-8 lg:py-12">
+        <div class="px-6 lg:px-16">
+          <div class="mb-8 lg:mb-16">
+            <div class="max-w-4xl">
+              <h2 class="text-[30px] lg:text-5xl font-medium text-gray-900 mb-6 tracking-[-0.5px]">
+                Elevate Your Fan Experience
+              </h2>
             </div>
-            <div class="flex gap-2">
-              <img src="/images/mat1.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat2.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat3.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat4.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat5.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat6.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="mat7.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <p class="leading-relaxed tracking-[-0.2px] max-w-2xl" style="color: #525866;">
+                Our experiences are carefully designed to deliver memorable fan moments, trusted booking support, and meaningful access to Martin Henderson.
+              </p>
+              <a href="/meet-and-greet" class="rounded-full border-2 border-blue-500 px-8 py-3 text-blue-500 hover:bg-blue-50 bg-transparent hidden lg:flex items-center transition-colors whitespace-nowrap">
+                See All Options
+              </a>
             </div>
           </div>
-          <div class="flex flex-nowrap gap-2 carousel-row carousel-row-right" style="animation-duration: 45s">
-            <div class="flex gap-2">
-              <img src="/images/mat8.jpg" alt="Martin Henderson 8" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat9.jpg" alt="Martin Henderson 9" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat10.jpg" alt="Martin Henderson 10" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat11.jpg" alt="Martin Henderson 11" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat12.jpg" alt="Martin Henderson 12" class="rounded-[18px] h-40 object-cover" loading="lazy" />
-              <img src="/images/mat13.jpg" alt="Martin Henderson 13" class="rounded-[18px] h-40 object-cover" loading="lazy" />
+
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 relative">
+            <!-- Amenity Cards -->
+            <div class="space-y-2">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M14 18a2 2 0 0 0-4 0"/><path d="m19 11-2.11-6.657a2 2 0 0 0-2.752-1.148l-1.276.61A2 2 0 0 1 12 4H8.5a2 2 0 0 0-1.925 1.456L5 11"/><path d="M2 11h20"/><circle cx="17" cy="18" r="3"/><circle cx="7" cy="18" r="3"/></svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Private Meet Sessions</h3>
+              <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Connect one-on-one in curated sessions designed to feel warm, personal, and unforgettable.</p>
             </div>
-            <div class="flex gap-2">
-              <img src="/images/mat8.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat9.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat10.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat11.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat12.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
-              <img src="/images/mat13.jpg" alt="" class="rounded-[18px] h-40 object-cover" loading="lazy" aria-hidden="true" />
+
+            <div class="space-y-2">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M3 7.5h4"/><path d="M3 12h18"/><path d="M3 16.5h4"/><path d="M17 3v18"/><path d="M17 7.5h4"/><path d="M17 16.5h4"/></svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Photo & Memory Moments</h3>
+              <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Capture high-quality photos and keepsakes to remember your Martin Henderson experience.</p>
+            </div>
+
+            <div class="space-y-2">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M20 11v6"/><path d="M20 13h2"/><path d="M3 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 2.072.578"/><circle cx="10" cy="7" r="4"/><circle cx="20" cy="19" r="2"/></svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Exclusive Fan Access</h3>
+              <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Unlock fan card perks, priority updates, and access to selected opportunities first.</p>
+            </div>
+
+            <div class="space-y-2">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Behind-the-Scenes Stories</h3>
+              <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Hear real stories from Martin's career, projects, and fan-favorite moments.</p>
+            </div>
+
+            <div class="space-y-2">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Trusted Booking Process</h3>
+              <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Book confidently through official channels with clear communication every step.</p>
+            </div>
+
+            <div class="space-y-2">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M9.5 13.866a4 4 0 0 1 5 .01"/><path d="M12 17h.01"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M7 10.754a8 8 0 0 1 10 0"/></svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Flexible Event Formats</h3>
+              <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Choose from virtual sessions, private meet & greet events, and special appearances.</p>
+            </div>
+
+            <div class="space-y-2">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Fan Community Energy</h3>
+              <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Join a welcoming fan community and share moments with people who truly care.</p>
+            </div>
+
+            <div class="space-y-2">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Safe & Verified Access</h3>
+              <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Avoid impersonators with safe, verified access managed by the official support team.</p>
+            </div>
+
+            <div class="space-y-2">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-blue-500"><path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"/><path d="M7 16v6"/><path d="M13 19v3"/><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"/></svg>
+              </div>
+              <h3 class="text-xl font-medium text-gray-900 pl-3 tracking-[-0.5px]">Dedicated Support Team</h3>
+              <p class="leading-relaxed tracking-[-0.2px] pl-3" style="color: #525866;">Get responsive help before, during, and after booking from a dedicated support team.</p>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- FAQ Section -->
+      <section class="mt-20 lg:mt-28 px-5 md:px-8">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-10 lg:mb-14">
+            <h2 class="text-[28px] lg:text-[44px] font-medium text-gray-900 mb-4 tracking-[-0.5px]">Frequently Asked Questions</h2>
+            <p class="text-[15px] leading-relaxed text-gray-600 max-w-xl mx-auto tracking-[-0.2px]">
+              Everything you need to know about bookings, meet &amp; greets, and fan experiences.
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            <!-- FAQ 1 -->
+            <div class="border border-gray-200 rounded-2xl">
+              <button class="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-medium text-gray-900">How do I book Martin Henderson for an event?</h3>
+                <svg class="h-5 w-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="hidden px-6 pb-4">
+                <p class="text-gray-600 leading-relaxed">Submit a request on the booking page with your event details including date, location, and type of appearance. Our team reviews availability and contacts you with the next steps, timeline, and any requirements.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="border border-gray-200 rounded-2xl">
+              <button class="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-medium text-gray-900">How do the meet and greet sessions work?</h3>
+                <svg class="h-5 w-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="hidden px-6 pb-4">
+                <p class="text-gray-600 leading-relaxed">You can request a private or event-based meet and greet through the dedicated form. Once confirmed, the team shares timing, format, photo opportunities, and what is included so you know exactly what to expect.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="border border-gray-200 rounded-2xl">
+              <button class="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-medium text-gray-900">What is included in the fan card?</h3>
+                <svg class="h-5 w-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="hidden px-6 pb-4">
+                <p class="text-gray-600 leading-relaxed">Fan card members receive priority updates, exclusive opportunities, and early access to selected experiences and announcements. It is the best way to stay connected and get first access to new events and content.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="border border-gray-200 rounded-2xl">
+              <button class="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-medium text-gray-900">Can I upgrade my request later?</h3>
+                <svg class="h-5 w-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="hidden px-6 pb-4">
+                <p class="text-gray-600 leading-relaxed">Yes, if your plans change you can contact support and we will help update your request based on current availability and event logistics. Upgrades are handled on a case-by-case basis to ensure the best experience.</p>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="border border-gray-200 rounded-2xl">
+              <button class="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none" onclick="toggleFAQ(this)">
+                <h3 class="text-lg font-medium text-gray-900">How do I report scam messages or fake accounts?</h3>
+                <svg class="h-5 w-5 text-gray-500 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div class="hidden px-6 pb-4">
+                <p class="text-gray-600 leading-relaxed">Use the report scam page to share the account handle, platform, and details of what happened. Include screenshots if possible. The team reviews every report as quickly as possible to protect the fan community.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════ GALLERY ═══════════════════════ -->
+      <section class="mt-20 lg:mt-28 pb-16 md:pb-24 px-5 md:px-8">
+        <div class="max-w-[1100px] mx-auto">
+          <div class="mb-8">
+            <h2 class="text-[28px] lg:text-[44px] font-medium text-gray-900 mb-2 tracking-[-0.5px]">Gallery</h2>
+            <p class="text-[15px] text-gray-600 leading-relaxed tracking-[-0.2px]">Moments from events, shoots, and behind the scenes.</p>
+          </div>
+
+          <!-- Mobile: 2-col grid -->
+          <div class="grid grid-cols-2 gap-2 md:hidden">
+            <img src="/images/mat1.jpg" alt="Martin Henderson 1" class="rounded-2xl h-36 w-full object-cover border border-gray-200" loading="lazy" />
+            <img src="/images/mat2.jpg" alt="Martin Henderson 2" class="rounded-2xl h-36 w-full object-cover border border-gray-200" loading="lazy" />
+            <img src="/images/mat3.jpg" alt="Martin Henderson 3" class="rounded-2xl h-36 w-full object-cover border border-gray-200" loading="lazy" />
+            <img src="/images/mat4.jpg" alt="Martin Henderson 4" class="rounded-2xl h-36 w-full object-cover border border-gray-200" loading="lazy" />
+            <img src="/images/mat5.jpg" alt="Martin Henderson 5" class="rounded-2xl h-36 w-full object-cover border border-gray-200" loading="lazy" />
+            <img src="/images/mat6.jpg" alt="Martin Henderson 6" class="rounded-2xl h-36 w-full object-cover border border-gray-200" loading="lazy" />
+            <img src="/images/mat7.jpg" alt="Martin Henderson 7" class="rounded-2xl h-36 w-full object-cover border border-gray-200" loading="lazy" />
+            <img src="/images/mat8.jpg" alt="Martin Henderson 8" class="rounded-2xl h-36 w-full object-cover border border-gray-200" loading="lazy" />
+            <img src="/images/mat9.jpg" alt="Martin Henderson 9" class="rounded-2xl h-36 w-full object-cover border border-gray-200" loading="lazy" />
+          </div>
+
+          <!-- Desktop: 3x3 static grid -->
+          <div class="hidden md:grid grid-cols-3 gap-4">
+            <img src="/images/mat1.jpg" alt="Martin Henderson 1" class="rounded-2xl h-56 w-full object-cover border border-gray-200 hover:shadow-lg hover:shadow-blue-100 transition-shadow" loading="lazy" />
+            <img src="/images/mat2.jpg" alt="Martin Henderson 2" class="rounded-2xl h-56 w-full object-cover border border-gray-200 hover:shadow-lg hover:shadow-blue-100 transition-shadow" loading="lazy" />
+            <img src="/images/mat3.jpg" alt="Martin Henderson 3" class="rounded-2xl h-56 w-full object-cover border border-gray-200 hover:shadow-lg hover:shadow-blue-100 transition-shadow" loading="lazy" />
+            <img src="/images/mat4.jpg" alt="Martin Henderson 4" class="rounded-2xl h-56 w-full object-cover border border-gray-200 hover:shadow-lg hover:shadow-blue-100 transition-shadow" loading="lazy" />
+            <img src="/images/mat5.jpg" alt="Martin Henderson 5" class="rounded-2xl h-56 w-full object-cover border border-gray-200 hover:shadow-lg hover:shadow-blue-100 transition-shadow" loading="lazy" />
+            <img src="/images/mat6.jpg" alt="Martin Henderson 6" class="rounded-2xl h-56 w-full object-cover border border-gray-200 hover:shadow-lg hover:shadow-blue-100 transition-shadow" loading="lazy" />
+            <img src="/images/mat7.jpg" alt="Martin Henderson 7" class="rounded-2xl h-56 w-full object-cover border border-gray-200 hover:shadow-lg hover:shadow-blue-100 transition-shadow" loading="lazy" />
+            <img src="/images/mat8.jpg" alt="Martin Henderson 8" class="rounded-2xl h-56 w-full object-cover border border-gray-200 hover:shadow-lg hover:shadow-blue-100 transition-shadow" loading="lazy" />
+            <img src="/images/mat9.jpg" alt="Martin Henderson 9" class="rounded-2xl h-56 w-full object-cover border border-gray-200 hover:shadow-lg hover:shadow-blue-100 transition-shadow" loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════ WHAT FANS SAY — TESTIMONIAL SLIDER ═══════════════════════ -->
+      <section class="mt-16 lg:mt-32 bg-[#F6F8FA] py-16 lg:py-24">
+        <div class="px-6 lg:px-16">
+          <div class="text-center mb-8 lg:mb-12">
+            <h2 class="text-[30px] lg:text-5xl font-medium text-gray-900 mb-4 tracking-[-0.5px]">What Fans Say</h2>
+            <p class="leading-relaxed tracking-[-0.2px] max-w-xl mx-auto" style="color: #525866;">
+              Real stories from fans who have experienced meet &amp; greets, bookings, and personal moments with Martin.
+            </p>
+          </div>
+
+          <div class="relative">
+            <div class="testimonial-slider-container overflow-x-hidden">
+              <div class="testimonial-track flex transition-transform duration-300 ease-in-out">
+
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide w-full lg:w-[70%] flex-shrink-0">
+                  <div class="px-2 lg:px-4">
+                    <div class="testimonial-card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row max-w-3xl mx-auto transition-all duration-300">
+                      <div class="w-full lg:w-3/5 p-5 lg:p-6 flex flex-col justify-center order-2 lg:order-1">
+                        <blockquote class="text-base lg:text-lg text-gray-900 mb-5 italic leading-relaxed tracking-[-0.2px]">
+                          "I was so nervous, but Martin was incredibly warm and kind. He took time to chat, signed my Virgin River book, and the photos turned out amazing. Best day ever!"
+                        </blockquote>
+                        <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                            <span class="text-white font-medium text-sm">JR</span>
+                          </div>
+                          <div>
+                            <div class="font-medium text-gray-900 text-sm">Jessica R.</div>
+                            <div class="text-xs text-gray-500">Los Angeles, CA</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="w-full lg:w-2/5 h-40 lg:h-56 relative order-1 lg:order-2 p-3">
+                        <div class="w-full h-full rounded-xl overflow-hidden">
+                          <img src="/images/mat3.jpg" alt="Fan meet moment" class="w-full h-full object-cover">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide w-full lg:w-[70%] flex-shrink-0">
+                  <div class="px-2 lg:px-4">
+                    <div class="testimonial-card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row max-w-3xl mx-auto transition-all duration-300">
+                      <div class="w-full lg:w-3/5 p-5 lg:p-6 flex flex-col justify-center order-2 lg:order-1">
+                        <blockquote class="text-base lg:text-lg text-gray-900 mb-5 italic leading-relaxed tracking-[-0.2px]">
+                          "My daughter is a huge Virgin River fan. Meeting Martin in person made her year. He was so patient, funny, and genuine — not what you'd expect from a big star."
+                        </blockquote>
+                        <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                            <span class="text-white font-medium text-sm">KM</span>
+                          </div>
+                          <div>
+                            <div class="font-medium text-gray-900 text-sm">Karen M.</div>
+                            <div class="text-xs text-gray-500">Austin, TX</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="w-full lg:w-2/5 h-40 lg:h-56 relative order-1 lg:order-2 p-3">
+                        <div class="w-full h-full rounded-xl overflow-hidden">
+                          <img src="/images/mat7.jpg" alt="Fan meet moment" class="w-full h-full object-cover">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide w-full lg:w-[70%] flex-shrink-0">
+                  <div class="px-2 lg:px-4">
+                    <div class="testimonial-card bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col lg:flex-row max-w-3xl mx-auto transition-all duration-300">
+                      <div class="w-full lg:w-3/5 p-5 lg:p-6 flex flex-col justify-center order-2 lg:order-1">
+                        <blockquote class="text-base lg:text-lg text-gray-900 mb-5 italic leading-relaxed tracking-[-0.2px]">
+                          "Booked a virtual meet for my birthday and it was the highlight of the year. Martin remembered details I'd mentioned and was so down-to-earth. 10/10 would do again!"
+                        </blockquote>
+                        <div class="flex items-center gap-3">
+                          <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                            <span class="text-white font-medium text-sm">SL</span>
+                          </div>
+                          <div>
+                            <div class="font-medium text-gray-900 text-sm">Sophie L.</div>
+                            <div class="text-xs text-gray-500">London, UK</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="w-full lg:w-2/5 h-40 lg:h-56 relative order-1 lg:order-2 p-3">
+                        <div class="w-full h-full rounded-xl overflow-hidden">
+                          <img src="/images/mat11.jpg" alt="Fan meet moment" class="w-full h-full object-cover">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Arrows -->
+          <div class="flex justify-center items-center gap-4 mt-8">
+            <button class="testimonial-prev glass-blur rounded-full p-3 transition-all duration-300 hover:shadow-md">
+              <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button class="testimonial-next glass-blur rounded-full p-3 transition-all duration-300 hover:shadow-md">
+              <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════ FINAL CTA ═══════════════════════ -->
+      <section class="px-5 md:px-8 pb-20 lg:pb-28">
+        <div class="max-w-[1100px] mx-auto">
+          <div class="flex flex-col lg:flex-row items-start lg:items-center gap-10 lg:gap-16">
+            <div class="flex-1">
+              <h2 class="text-[28px] lg:text-[44px] font-medium text-gray-900 mb-5 tracking-[-0.5px]">Ready to Meet Martin?</h2>
+              <p class="text-[15px] leading-relaxed text-gray-600 max-w-lg mb-6 tracking-[-0.2px]">
+                Don't miss your chance to connect with one of television's most beloved actors. Start your booking today — spots fill up fast.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a href="/meet-and-greet" class="inline-flex items-center gap-2 rounded-full bg-blue-500 px-6 py-3 text-[14px] font-medium text-white hover:bg-blue-600 transition-colors">
+                  Book Meet &amp; Greet
+                </a>
+                <a href="/fan-card" class="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-white px-6 py-3 text-[14px] text-gray-800 hover:border-blue-500/40 hover:text-blue-500 transition-all">
+                  Get Fan Card
+                </a>
+              </div>
+            </div>
+            <div class="flex-1 flex gap-3">
+              <div class="flex-1">
+                <img src="/images/mat5.jpg" alt="Martin Henderson event" class="w-full h-[180px] lg:h-[260px] object-cover rounded-2xl border border-gray-200 shadow-lg shadow-blue-100 -mt-4 lg:-mt-8" loading="lazy" />
+              </div>
+              <div class="flex-1">
+                <img src="/images/mat9.jpg" alt="Martin Henderson fan meet" class="w-full h-[140px] lg:h-[200px] object-cover rounded-2xl border border-gray-200 shadow-lg shadow-blue-100 mt-6 lg:mt-10" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
-    <footer class="bg-[#F6F6F6] text-[14px] leading-[20px] py-8 px-[14px] md:px-[300px]">
-      <div class="max-w-[1251.58px] mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center items-center text-center">
-        <div>
-          <p class="text-gray-600 mb-1">Email</p>
-          <a href="mailto:hello@themartinhenderson.org" class="text-zinc-500 hover:text-black transition-colors">hello@themartinhenderson.org</a>
+    <!-- FOOTER -->
+    <footer class="bg-blue-500 text-white py-14 px-5 md:px-8">
+      <div class="max-w-[1100px] mx-auto">
+        <!-- Top row: brand + nav columns -->
+        <div class="flex flex-col md:flex-row gap-10 md:gap-16 mb-10">
+          <!-- Brand -->
+          <div class="md:w-1/3">
+            <a href="/" class="text-lg font-semibold text-white">Martin Henderson</a>
+            <p class="text-blue-100 text-[13px] leading-relaxed mt-2 max-w-xs">The official fan site for bookings, meet &amp; greets, fan cards, and everything Martin Henderson.</p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-[12px] uppercase tracking-wider text-blue-200 mb-3 font-medium">Quick Links</h4>
+            <ul class="space-y-2 text-[14px]">
+              <li><a href="/booking" class="text-blue-100 hover:text-white transition-colors">Bookings</a></li>
+              <li><a href="/meet-and-greet" class="text-blue-100 hover:text-white transition-colors">Meet &amp; Greet</a></li>
+              <li><a href="/fan-card" class="text-blue-100 hover:text-white transition-colors">Fan Card</a></li>
+              <li><a href="/report-scam" class="text-blue-100 hover:text-white transition-colors">Report Scam</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h4 class="text-[12px] uppercase tracking-wider text-blue-200 mb-3 font-medium">Contact</h4>
+            <ul class="space-y-2 text-[14px]">
+              <li><a href="mailto:hello@themartinhenderson.org" class="text-blue-100 hover:text-white transition-colors">hello@themartinhenderson.org</a></li>
+              <li><a href="mailto:support@themartinhenderson.org" class="text-blue-100 hover:text-white transition-colors">support@themartinhenderson.org</a></li>
+            </ul>
+          </div>
+
+          <!-- Legal -->
+          <div>
+            <h4 class="text-[12px] uppercase tracking-wider text-blue-200 mb-3 font-medium">Legal</h4>
+            <ul class="space-y-2 text-[14px]">
+              <li><a href="#" class="text-blue-100 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" class="text-blue-100 hover:text-white transition-colors">Terms of Service</a></li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <p class="text-gray-600 mb-1">Other</p>
-          <a href="#" class="text-zinc-500 hover:text-black transition-colors">Legal Notice</a>
+
+        <!-- Divider + copyright -->
+        <div class="border-t border-blue-400/40 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-[12px] text-blue-200">
+          <p>&copy; 2026 Martin Henderson. All rights reserved.</p>
+          <p>Made with care for the fan community.</p>
         </div>
       </div>
     </footer>
@@ -306,9 +576,7 @@
         const btn = document.querySelector('button[aria-controls="mobileMenu"]');
         const isOpen = !overlay.classList.contains("hidden");
         if (isOpen) closeMobileMenu();
-        else openMobileMenu();
-
-        function openMobileMenu() {
+        else {
           overlay.classList.remove("hidden");
           overlay.setAttribute("aria-hidden", "false");
           btn?.setAttribute("aria-expanded", "true");
@@ -328,6 +596,80 @@
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeMobileMenu();
       });
+
+      // FAQ accordion toggle
+      function toggleFAQ(btn) {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.hidden, .faq-open');
+        const svg = btn.querySelector('svg');
+        const isOpen = answer.classList.contains('faq-open');
+
+        // Close all other items
+        document.querySelectorAll('.border.border-gray-200.rounded-2xl').forEach(function (el) {
+          const a = el.querySelector('.faq-open');
+          if (a && el !== item) {
+            a.classList.add('hidden');
+            a.classList.remove('faq-open');
+            el.querySelector('button svg').classList.remove('rotate-180');
+          }
+        });
+
+        // Toggle clicked item
+        if (isOpen) {
+          answer.classList.add('hidden');
+          answer.classList.remove('faq-open');
+          svg.classList.remove('rotate-180');
+        } else {
+          answer.classList.remove('hidden');
+          answer.classList.add('faq-open');
+          svg.classList.add('rotate-180');
+        }
+      }
+
+      // Testimonial slider
+      (function () {
+        const track = document.querySelector('.testimonial-track');
+        if (!track) return;
+        const slides = document.querySelectorAll('.testimonial-slide');
+        const prevBtn = document.querySelector('.testimonial-prev');
+        const nextBtn = document.querySelector('.testimonial-next');
+        let idx = 0;
+        const total = slides.length;
+        let autoId;
+
+        function update(instant) {
+          slides.forEach(function (s, i) {
+            const card = s.querySelector('.testimonial-card');
+            if (i === idx) {
+              s.classList.add('active');
+              if (card) card.style.transform = 'scale(1)';
+            } else {
+              s.classList.remove('active');
+              if (card) card.style.transform = 'scale(0.95)';
+            }
+          });
+          var cw = track.parentElement.offsetWidth;
+          var sw = slides[0].offsetWidth;
+          var off = (cw - sw) / 2;
+          var tx = 'translateX(-' + (idx * sw - off) + 'px)';
+          track.style.transition = instant ? 'none' : 'transform 0.5s ease-in-out';
+          track.style.transform = tx;
+        }
+
+        function next() { idx = (idx + 1) % total; update(); }
+        function prev() { idx = (idx - 1 + total) % total; update(); }
+        function startAuto() { stopAuto(); autoId = setInterval(next, 5000); }
+        function stopAuto() { clearInterval(autoId); }
+
+        if (prevBtn && nextBtn) {
+          prevBtn.addEventListener('click', function () { prev(); stopAuto(); startAuto(); });
+          nextBtn.addEventListener('click', function () { next(); stopAuto(); startAuto(); });
+        }
+        track.parentElement.addEventListener('mouseenter', stopAuto);
+        track.parentElement.addEventListener('mouseleave', startAuto);
+        window.addEventListener('resize', function () { update(true); });
+        if (total > 0) setTimeout(function () { update(true); startAuto(); }, 100);
+      })();
     </script>
   </body>
 </html>

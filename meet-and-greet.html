@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meet &amp; Greet Booking — Martin Henderson</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @font-face {
-        font-family: "LayGrotesk";
-        src: url("/assets/LayGrotesk_Medium.woff") format("woff");
-        font-style: normal;
-        font-display: swap;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: { 950: '#0c0a1a', 900: '#110f26', 800: '#1a1735', 700: '#252248' },
+              accent: { warm: '#f59e42', rose: '#f472b6', sky: '#38bdf8', violet: '#a78bfa' }
+            }
+          }
+        }
       }
-
+    </script>
+    <style>
       :root {
-        --nav-bg: #EBEBEB;
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
 
-      html,
-      body {
-        font-family: "LayGrotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+      html, body {
+        font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
           Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       }
       .btn-spinner {
@@ -42,43 +48,43 @@
       }
     </style>
   </head>
-  <body class="min-h-screen bg-white text-black">
-    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-[24px] md:px-[300px] pt-[14px]">
+  <body class="min-h-screen bg-brand-950 text-zinc-100">
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-5 md:px-8 pt-4">
       <div
-        class="w-full flex items-center justify-between px-4"
-        style="max-width: 1251.58px; height: 42px; background-color: var(--nav-bg); border-radius: 1000px"
+        class="w-full flex items-center justify-between px-5 border border-white/10 shadow-lg shadow-black/30 backdrop-blur-xl"
+        style="max-width: 1100px; height: 48px; background: rgba(17,15,38,0.78); border-radius: 1000px"
       >
         <div class="flex items-center gap-3">
-          <a href="/" class="text-[15px] leading-[21px] text-black hover:text-zinc-700"
+          <a href="/" class="text-[15px] leading-[21px] text-white font-medium tracking-tight"
             >Martin Henderson</a
           >
         </div>
         <div class="hidden md:flex gap-[8px] items-center">
           <a
             href="/booking"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            class="px-3 py-1.5 text-[14px] rounded-full text-zinc-400 hover:text-accent-warm transition-colors"
             >Bookings</a
           >
           <a
             href="meet-and-greet.html"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-black"
+            class="px-3 py-1.5 text-[14px] rounded-full text-accent-warm font-medium"
             >Meet and Greet</a
           >
           <a
             href="/fan-card"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            class="px-3 py-1.5 text-[14px] rounded-full text-zinc-400 hover:text-accent-warm transition-colors"
             >Fan Card</a
           >
           <a
             href="/report-scam"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            class="px-3 py-1.5 text-[14px] rounded-full text-zinc-400 hover:text-accent-warm transition-colors"
             >Report Scam</a
           >
         </div>
 
         <button
           type="button"
-          class="md:hidden px-3 py-2 rounded-[1000px]"
+          class="md:hidden p-2 rounded-full text-zinc-300 hover:text-white"
           aria-label="Open menu"
           aria-controls="mobileMenu"
           aria-expanded="false"
@@ -105,17 +111,17 @@
 
     <div id="mobileMenuOverlay" class="fixed inset-0 z-40 hidden" aria-hidden="true">
       <button
-        class="absolute inset-0 bg-black/30"
+        class="absolute inset-0 bg-black/50 backdrop-blur-sm"
         type="button"
         aria-label="Close menu overlay"
         onclick="closeMobileMenu()"
       ></button>
 
-      <div class="relative flex justify-center px-[24px] md:px-[300px] pt-[72px]">
+      <div class="relative flex justify-center px-5 pt-[72px]">
         <div
           id="mobileMenu"
-          class="w-full px-4 py-4"
-          style="max-width: 1251.58px; background-color: var(--nav-bg); border-radius: 24px"
+          class="w-full px-2 py-3 border border-white/10 shadow-2xl"
+          style="max-width: 500px; background: rgba(17,15,38,0.95); border-radius: 20px"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
@@ -123,25 +129,25 @@
           <div class="flex flex-col gap-0">
             <a
               href="/booking"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
+              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
               onclick="closeMobileMenu()"
               >Bookings</a
             >
             <a
               href="meet-and-greet.html"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-black focus:text-black active:text-black"
+              class="px-4 py-3 text-[15px] rounded-xl text-accent-warm font-medium"
               onclick="closeMobileMenu()"
               >Meet and Greet</a
             >
             <a
               href="/fan-card"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
+              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
               onclick="closeMobileMenu()"
               >Fan Card</a
             >
             <a
               href="/report-scam"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black focus:text-black active:text-black"
+              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
               onclick="closeMobileMenu()"
               >Report Scam</a
             >
@@ -150,21 +156,21 @@
       </div>
     </div>
 
-    <main class="pt-[100px] pb-[80px] px-[14px] md:px-[300px]">
+    <main class="pt-[100px] pb-[80px] px-5 md:px-8">
       <section class="max-w-[900px] mx-auto space-y-8">
         <header class="space-y-2">
-          <p class="text-[13px] leading-[18px] text-zinc-500">Booking document</p>
-          <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px]">
+          <p class="text-[13px] leading-[18px] text-zinc-400">Booking document</p>
+          <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px] text-white">
             Martin Henderson Meet &amp; Greet Booking
           </h1>
-          <p class="text-[14px] leading-[20px] text-zinc-500">
+          <p class="text-[14px] leading-[20px] text-zinc-400">
             Event: Exclusive Meet &amp; Greet with Martin Henderson
           </p>
         </header>
 
         <section class="space-y-3">
-          <h2 class="text-[16px] leading-[22px] text-zinc-700">Booking Request Form</h2>
-          <p class="text-[14px] leading-[20px] text-zinc-500">
+          <h2 class="text-[16px] leading-[22px] text-zinc-300">Booking Request Form</h2>
+          <p class="text-[14px] leading-[20px] text-zinc-400">
             Please complete and submit this form to secure your meet &amp; greet booking. All bookings
             are subject to availability and approval by Martin Henderson's management team.
           </p>
@@ -172,62 +178,62 @@
 
         <form class="space-y-8" id="bookingForm" novalidate data-endpoint="https://cgmvzrjxkldxtkrydcdv.supabase.co/functions/v1/meet-and-greet-email">
           <section class="space-y-3">
-            <h3 class="text-[15px] leading-[21px] text-zinc-700">1. Contact Information</h3>
-            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Full Name</div>
+            <h3 class="text-[15px] leading-[21px] text-zinc-300">1. Contact Information</h3>
+            <div class="border border-white/10 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Full Name</div>
                 <div class="px-4 py-3">
                   <input
                     name="fullName"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="Your name"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Email Address</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Email Address</div>
                 <div class="px-4 py-3">
                   <input
                     name="email"
                     type="email"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="you@email.com"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Phone Number</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Phone Number</div>
                 <div class="px-4 py-3">
                   <input
                     name="phone"
                     type="tel"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="+1 ..."
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Organization / Event Name</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Organization / Event Name</div>
                 <div class="px-4 py-3">
                   <input
                     name="organization"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="(if applicable)"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Booking For</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Booking For</div>
                 <div class="px-4 py-3">
                   <select
                     name="bookingFor"
-                    class="w-full bg-transparent outline-none text-zinc-700 rounded-xl px-3 py-2"
+                    class="w-full bg-transparent outline-none text-zinc-100 rounded-xl px-3 py-2"
                     required
                   >
                     <option value="">Select</option>
@@ -237,12 +243,12 @@
                   </select>
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Sex</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Sex</div>
                 <div class="px-4 py-3">
                   <select
                     name="sex"
-                    class="w-full bg-transparent outline-none text-zinc-700 rounded-xl px-3 py-2"
+                    class="w-full bg-transparent outline-none text-zinc-100 rounded-xl px-3 py-2"
                     required
                   >
                     <option value="">Select</option>
@@ -253,61 +259,61 @@
                   </select>
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Occupation</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Occupation</div>
                 <div class="px-4 py-3">
                   <input
                     name="occupation"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="e.g. Teacher, Engineer"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Home Address</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Home Address</div>
                 <div class="px-4 py-3">
                   <input
                     name="homeAddress"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="Street address, apt/suite"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">City</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">City</div>
                 <div class="px-4 py-3">
                   <input
                     name="city"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="e.g. Los Angeles"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">State</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">State</div>
                 <div class="px-4 py-3">
                   <input
                     name="state"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="e.g. California"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">ZIP Code</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">ZIP Code</div>
                 <div class="px-4 py-3">
                   <input
                     name="zipcode"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="e.g. 90210"
                     inputmode="numeric"
                     autocomplete="postal-code"
@@ -316,12 +322,12 @@
                 </div>
               </div>
               <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Nearest Airport</div>
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Nearest Airport</div>
                 <div class="px-4 py-3">
                   <input
                     name="nearestAirport"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="e.g. LAX, JFK"
                     required
                   />
@@ -331,73 +337,73 @@
           </section>
 
           <section class="space-y-3">
-            <h3 class="text-[15px] leading-[21px] text-zinc-700">2. Event Details</h3>
-            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Preferred Date(s)</div>
+            <h3 class="text-[15px] leading-[21px] text-zinc-300">2. Event Details</h3>
+            <div class="border border-white/10 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Preferred Date(s)</div>
                 <div class="px-4 py-3">
                   <input
                     name="preferredDates"
                     type="date"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">End Date (optional)</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">End Date (optional)</div>
                 <div class="px-4 py-3">
                   <input
                     name="preferredDatesEnd"
                     type="date"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Preferred Time</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Preferred Time</div>
                 <div class="px-4 py-3">
                   <input
                     name="preferredTime"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="e.g., 2:00 PM – 4:00 PM"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Location</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Location</div>
                 <div class="px-4 py-3">
                   <input
                     name="location"
                     type="text"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="City, venue/address – virtual or in‑person"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Number of Attendees</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Number of Attendees</div>
                 <div class="px-4 py-3">
                   <input
                     name="attendees"
                     type="number"
                     min="1"
                     max="50"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="Max 50 per session"
                     required
                   />
                 </div>
               </div>
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Duration</div>
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Duration</div>
                 <div class="px-4 py-3">
                   <select
                     name="duration"
-                    class="w-full bg-transparent outline-none text-zinc-700 rounded-xl px-3 py-2"
+                    class="w-full bg-transparent outline-none text-zinc-100 rounded-xl px-3 py-2"
                     required
                   >
                     <option value="">Select</option>
@@ -409,7 +415,7 @@
                 </div>
               </div>
               <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Event Type</div>
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Event Type</div>
                 <div class="px-4 py-3 text-zinc-500 space-y-1">
                   <label class="flex items-center gap-2">
                     <input type="radio" name="eventType" value="Fan Meet" class="accent-black" required />
@@ -433,7 +439,7 @@
                     <input
                       name="eventTypeOther"
                       type="text"
-                      class="flex-1 bg-transparent outline-none border-b border-zinc-200 text-zinc-700 placeholder:text-zinc-400"
+                      class="flex-1 bg-transparent outline-none border-b border-white/10 text-zinc-100 placeholder:text-zinc-500"
                       placeholder="Describe"
                     />
                   </label>
@@ -443,8 +449,8 @@
           </section>
 
           <section class="space-y-3">
-            <h3 class="text-[15px] leading-[21px] text-zinc-700">3. Customization Requests</h3>
-            <div class="space-y-2 text-[14px] leading-[20px] text-zinc-500">
+            <h3 class="text-[15px] leading-[21px] text-zinc-300">3. Customization Requests</h3>
+            <div class="space-y-2 text-[14px] leading-[20px] text-zinc-400">
               <label class="flex items-center gap-2">
                 <input type="checkbox" name="photoOps" value="yes" class="accent-black" />
                 <span>Photo ops (professional photographer provided)</span>
@@ -462,7 +468,7 @@
                 <textarea
                   name="specialRequests"
                   rows="3"
-                  class="w-full border border-zinc-200 rounded-2xl px-3 py-2 bg-white text-zinc-700 placeholder:text-zinc-400 outline-none"
+                  class="w-full border border-white/10 rounded-2xl px-3 py-2 bg-brand-800/40 text-zinc-100 placeholder:text-zinc-500 outline-none"
                   placeholder="Share any scheduling notes, accessibility needs, or special ideas."
                   required
                 ></textarea>
@@ -471,8 +477,8 @@
           </section>
 
           <section class="space-y-3">
-            <h3 class="text-[15px] leading-[21px] text-zinc-700">4. Package Selection</h3>
-            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+            <h3 class="text-[15px] leading-[21px] text-zinc-300">4. Package Selection</h3>
+            <div class="border border-white/10 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
               <div class="px-4 py-3 space-y-2 text-zinc-500">
                 <label class="flex items-center gap-2">
                   <input type="radio" name="package" value="Basic" class="accent-black" required />
@@ -497,7 +503,7 @@
           <div class="pt-2">
             <button
               type="submit"
-              class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors disabled:opacity-70 disabled:pointer-events-none"
+              class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-accent-warm to-accent-rose px-6 py-3 text-[14px] leading-[20px] text-white font-medium shadow-lg shadow-accent-warm/25 hover:shadow-accent-warm/40 hover:scale-[1.02] transition-all disabled:opacity-70 disabled:pointer-events-none"
             >
               <span class="btn-text">Submit booking request</span>
             </button>
@@ -505,39 +511,39 @@
         </form>
 
         <section class="space-y-3 mt-10">
-          <h3 class="text-[15px] leading-[21px] text-zinc-700">5. Pricing (USD)</h3>
-          <p class="text-[14px] leading-[20px] text-zinc-500">
+          <h3 class="text-[15px] leading-[21px] text-zinc-300">5. Pricing (USD)</h3>
+          <p class="text-[14px] leading-[20px] text-zinc-400">
             A non‑refundable deposit is required to confirm any booking.
           </p>
-          <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
-            <div class="hidden md:block bg-zinc-50 border-b border-zinc-200 px-4 py-3 font-medium">
+          <div class="border border-white/10 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+            <div class="hidden md:block bg-brand-800/60 border-b border-white/10 px-4 py-3 font-medium">
               Package · Description · Price (per event)
             </div>
 
-            <div class="border-b border-zinc-200">
+            <div class="border-b border-white/10">
               <div class="px-4 pt-3 pb-1 font-medium flex items-center justify-between gap-4">
                 <span>Basic</span>
-                <span class="text-black">$5,000</span>
+                <span class="text-white">$5,000</span>
               </div>
               <div class="px-4 pb-3 text-zinc-500">
                 Meet &amp; greet + group photo · 1–2 hours
               </div>
             </div>
 
-            <div class="border-b border-zinc-200">
+            <div class="border-b border-white/10">
               <div class="px-4 pt-3 pb-1 font-medium flex items-center justify-between gap-4">
                 <span>Standard</span>
-                <span class="text-black">$9,500</span>
+                <span class="text-white">$9,500</span>
               </div>
               <div class="px-4 pb-3 text-zinc-500">
                 Basic + autographs + 30‑min Q&amp;A · 3–6 hours
               </div>
             </div>
 
-            <div class="border-b border-zinc-200">
+            <div class="border-b border-white/10">
               <div class="px-4 pt-3 pb-1 font-medium flex items-center justify-between gap-4">
                 <span>Premium</span>
-                <span class="text-black">$15,750</span>
+                <span class="text-white">$15,750</span>
               </div>
               <div class="px-4 pb-3 text-zinc-500">
                 Standard + individual photos + 1‑hr Q&amp;A · 6–12 hours
@@ -547,7 +553,7 @@
             <div>
               <div class="px-4 pt-3 pb-1 font-medium flex items-center justify-between gap-4">
                 <span>VIP (Custom)</span>
-                <span class="text-black">From $50,000</span>
+                <span class="text-white">From $50,000</span>
               </div>
               <div class="px-4 pb-3 text-zinc-500">
                 Fully customized experience (travel and special requirements extra)
@@ -557,30 +563,30 @@
         </section>
 
         <section class="space-y-3">
-          <h3 class="text-[15px] leading-[21px] text-zinc-700">Terms &amp; Conditions</h3>
-          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-zinc-500">
+          <h3 class="text-[15px] leading-[21px] text-zinc-300">Terms &amp; Conditions</h3>
+          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-zinc-400">
             <li>
-              <span class="font-medium text-zinc-600">Availability:</span> Subject to Martin's filming
+              <span class="font-medium text-zinc-300">Availability:</span> Subject to Martin's filming
               schedule. No guarantees until deposit received.
             </li>
             <li>
-              <span class="font-medium text-zinc-600">Cancellation Policy:</span> 90+ days: full refund
+              <span class="font-medium text-zinc-300">Cancellation Policy:</span> 90+ days: full refund
               minus 10% fee; 30–89 days: 50% refund; &lt;30 days: no refund.
             </li>
             <li>
-              <span class="font-medium text-zinc-600">Liability:</span> Attendees assume all risks. No
+              <span class="font-medium text-zinc-300">Liability:</span> Attendees assume all risks. No
               alcohol or drugs permitted.
             </li>
             <li>
-              <span class="font-medium text-zinc-600">Media Rights:</span> Photos/videos may be used
+              <span class="font-medium text-zinc-300">Media Rights:</span> Photos/videos may be used
               for promotion with consent.
             </li>
             <li>
-              <span class="font-medium text-zinc-600">Health &amp; Safety:</span> Proof of
+              <span class="font-medium text-zinc-300">Health &amp; Safety:</span> Proof of
               vaccination/masks may be required based on local guidelines.
             </li>
             <li>
-              <span class="font-medium text-zinc-600">Force Majeure:</span> Events may be rescheduled
+              <span class="font-medium text-zinc-300">Force Majeure:</span> Events may be rescheduled
               due to illness, travel issues, or unforeseen circumstances.
             </li>
           </ul>
@@ -706,7 +712,7 @@
             const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.error || data.details || "Request failed");
-            const confirmHtml = '<div class="border border-zinc-200 rounded-2xl bg-zinc-50/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-zinc-500">Request received</p><h2 class="text-[22px] leading-[28px] font-medium">Thank you</h2><p class="text-[14px] leading-[20px] text-zinc-600 max-w-md mx-auto">Your meet &amp; greet booking request has been sent. We&rsquo;ll get back to you soon.</p></div>';
+            const confirmHtml = '<div class="border border-white/10 rounded-2xl bg-brand-800/60/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-zinc-400">Request received</p><h2 class="text-[22px] leading-[28px] font-medium text-white">Thank you</h2><p class="text-[14px] leading-[20px] text-zinc-300 max-w-md mx-auto">Your meet &amp; greet booking request has been sent. We&rsquo;ll get back to you soon.</p></div>';
             form.outerHTML = confirmHtml;
           } catch (err) {
             alert("Something went wrong. Please try again or email us at hello@themartinhenderson.org.");
@@ -718,21 +724,21 @@
       })();
     </script>
 
-    <footer class="bg-[#F6F6F6] text-[14px] leading-[20px] py-8 px-[14px] md:px-[300px]">
+    <footer class="border-t border-white/10 bg-brand-900/60 backdrop-blur-sm text-[14px] leading-[20px] py-10 px-5 md:px-8">
       <div
-        class="max-w-[1251.58px] mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center items-center text-center"
+        class="max-w-[1100px] mx-auto flex flex-col md:flex-row gap-8 md:gap-16 justify-center items-center text-center"
       >
         <div>
-          <p class="text-gray-600 mb-1">Email</p>
+          <p class="text-zinc-500 mb-1 text-[12px] uppercase tracking-wider">Email</p>
           <a
             href="mailto:hello@themartinhenderson.org"
-            class="text-zinc-500 hover:text-black transition-colors"
+            class="text-zinc-300 hover:text-accent-warm transition-colors"
             >hello@themartinhenderson.org</a
           >
         </div>
         <div>
-          <p class="text-gray-600 mb-1">Other</p>
-          <a href="#" class="text-zinc-500 hover:text-black transition-colors">Legal Notice</a>
+          <p class="text-zinc-500 mb-1 text-[12px] uppercase tracking-wider">Legal</p>
+          <a href="#" class="text-zinc-300 hover:text-accent-sky transition-colors">Legal Notice</a>
         </div>
       </div>
     </footer>

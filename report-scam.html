@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Report Scam — Martin Henderson</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @font-face {
-        font-family: "LayGrotesk";
-        src: url("/assets/LayGrotesk_Medium.woff") format("woff");
-        font-style: normal;
-        font-display: swap;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: { 950: '#0c0a1a', 900: '#110f26', 800: '#1a1735', 700: '#252248' },
+              accent: { warm: '#f59e42', rose: '#f472b6', sky: '#38bdf8', violet: '#a78bfa' }
+            }
+          }
+        }
       }
-
+    </script>
+    <style>
       :root {
-        --nav-bg: #EBEBEB;
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
 
-      html,
-      body {
-        font-family: "LayGrotesk", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+      html, body {
+        font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
           Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       }
       .btn-spinner {
@@ -42,43 +48,43 @@
       }
     </style>
   </head>
-  <body class="min-h-screen bg-white text-black">
-    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-[24px] md:px-[300px] pt-[14px]">
+  <body class="min-h-screen bg-brand-950 text-zinc-100">
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-5 md:px-8 pt-4">
       <div
-        class="w-full flex items-center justify-between px-4"
-        style="max-width: 1251.58px; height: 42px; background-color: var(--nav-bg); border-radius: 1000px"
+        class="w-full flex items-center justify-between px-5 border border-white/10 shadow-lg shadow-black/30 backdrop-blur-xl"
+        style="max-width: 1100px; height: 48px; background: rgba(17,15,38,0.78); border-radius: 1000px"
       >
         <div class="flex items-center gap-3">
-          <a href="/" class="text-[15px] leading-[21px] text-black hover:text-zinc-700"
+          <a href="/" class="text-[15px] leading-[21px] text-white font-medium tracking-tight"
             >Martin Henderson</a
           >
         </div>
         <div class="hidden md:flex gap-[8px] items-center">
           <a
             href="/booking"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            class="px-3 py-1.5 text-[14px] rounded-full text-zinc-400 hover:text-accent-warm transition-colors"
             >Bookings</a
           >
           <a
             href="/meet-and-greet"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            class="px-3 py-1.5 text-[14px] rounded-full text-zinc-400 hover:text-accent-warm transition-colors"
             >Meet and Greet</a
           >
           <a
             href="/fan-card"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+            class="px-3 py-1.5 text-[14px] rounded-full text-zinc-400 hover:text-accent-warm transition-colors"
             >Fan Card</a
           >
           <a
             href="/report-scam"
-            class="px-2 py-1 text-[15px] leading-[21px] rounded-[1000px] text-black"
+            class="px-3 py-1.5 text-[14px] rounded-full text-accent-warm font-medium"
             >Report Scam</a
           >
         </div>
 
         <button
           type="button"
-          class="md:hidden px-3 py-2 rounded-[1000px]"
+          class="md:hidden p-2 rounded-full text-zinc-300 hover:text-white"
           aria-label="Open menu"
           aria-controls="mobileMenu"
           aria-expanded="false"
@@ -105,17 +111,17 @@
 
     <div id="mobileMenuOverlay" class="fixed inset-0 z-40 hidden" aria-hidden="true">
       <button
-        class="absolute inset-0 bg-black/30"
+        class="absolute inset-0 bg-black/50 backdrop-blur-sm"
         type="button"
         aria-label="Close menu overlay"
         onclick="closeMobileMenu()"
       ></button>
 
-      <div class="relative flex justify-center px-[24px] md:px-[300px] pt-[72px]">
+      <div class="relative flex justify-center px-5 pt-[72px]">
         <div
           id="mobileMenu"
-          class="w-full px-4 py-4"
-          style="max-width: 1251.58px; background-color: var(--nav-bg); border-radius: 24px"
+          class="w-full px-2 py-3 border border-white/10 shadow-2xl"
+          style="max-width: 500px; background: rgba(17,15,38,0.95); border-radius: 20px"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
@@ -123,25 +129,25 @@
           <div class="flex flex-col gap-0">
             <a
               href="/booking"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
               onclick="closeMobileMenu()"
               >Bookings</a
             >
             <a
               href="/meet-and-greet"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
               onclick="closeMobileMenu()"
               >Meet and Greet</a
             >
             <a
               href="/fan-card"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
               onclick="closeMobileMenu()"
               >Fan Card</a
             >
             <a
               href="/report-scam"
-              class="px-3 py-2 text-[15px] leading-[21px] rounded-[1000px] text-zinc-500 hover:text-black"
+              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
               onclick="closeMobileMenu()"
               >Report Scam</a
             >
@@ -150,44 +156,44 @@
       </div>
     </div>
 
-    <main class="pt-[100px] pb-[80px] px-[14px] md:px-[300px]">
+    <main class="pt-[100px] pb-[80px] px-5 md:px-8">
       <section class="max-w-[900px] mx-auto space-y-8">
         <header class="space-y-2">
-          <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px]">
+          <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px] text-white">
             Report Impersonation or Scam
           </h1>
-          <p class="text-[14px] leading-[20px] text-zinc-500">
+          <p class="text-[14px] leading-[20px] text-zinc-400">
             Use this form to report accounts or messages pretending to be Martin Henderson or his
             team.
           </p>
-          <p class="text-[14px] leading-[20px] text-zinc-500">
+          <p class="text-[14px] leading-[20px] text-zinc-400">
             This helps us flag suspicious activity and keep fans safe. If money is involved, contact
             your bank or payment provider immediately.
           </p>
         </header>
 
         <section class="space-y-3">
-          <h2 class="text-[16px] leading-[22px] text-zinc-700">Your Details</h2>
+          <h2 class="text-[16px] leading-[22px] text-zinc-300">Your Details</h2>
           <form class="space-y-6" id="reportScamForm" novalidate data-endpoint="https://cgmvzrjxkldxtkrydcdv.supabase.co/functions/v1/report-scam-email">
-            <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Name (optional)</div>
+            <div class="border border-white/10 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Name (optional)</div>
                 <div class="px-4 py-3">
                   <input
                     type="text"
                     name="name"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="You can stay anonymous"
                   />
                 </div>
               </div>
               <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
-                <div class="bg-zinc-50 px-4 py-3 font-medium">Contact email</div>
+                <div class="bg-brand-800/60 px-4 py-3 font-medium">Contact email</div>
                 <div class="px-4 py-3">
                   <input
                     type="email"
                     name="email"
-                    class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                     placeholder="Only used if we need clarification"
                   />
                 </div>
@@ -195,14 +201,14 @@
             </div>
 
             <section class="space-y-3">
-              <h2 class="text-[16px] leading-[22px] text-zinc-700">Scam Details</h2>
-              <div class="border border-zinc-200 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
-                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                  <div class="bg-zinc-50 px-4 py-3 font-medium">Platform</div>
+              <h2 class="text-[16px] leading-[22px] text-zinc-300">Scam Details</h2>
+              <div class="border border-white/10 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
+                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                  <div class="bg-brand-800/60 px-4 py-3 font-medium">Platform</div>
                   <div class="px-4 py-3">
                     <select
                       name="platform"
-                      class="w-full bg-transparent outline-none text-zinc-700 rounded-xl px-3 py-2"
+                      class="w-full bg-transparent outline-none text-zinc-100 rounded-xl px-3 py-2"
                       required
                     >
                       <option value="">Select platform</option>
@@ -216,36 +222,36 @@
                     </select>
                   </div>
                 </div>
-                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                  <div class="bg-zinc-50 px-4 py-3 font-medium">Account / handle</div>
+                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                  <div class="bg-brand-800/60 px-4 py-3 font-medium">Account / handle</div>
                   <div class="px-4 py-3">
                     <input
                       type="text"
                       name="handle"
-                      class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                      class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                       placeholder="@fakeaccount or email used"
                       required
                     />
                   </div>
                 </div>
-                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-zinc-200">
-                  <div class="bg-zinc-50 px-4 py-3 font-medium">Amount requested</div>
+                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
+                  <div class="bg-brand-800/60 px-4 py-3 font-medium">Amount requested</div>
                   <div class="px-4 py-3">
                     <input
                       type="text"
                       name="amount"
-                      class="w-full bg-transparent outline-none text-zinc-700 placeholder:text-zinc-400"
+                      class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
                       placeholder="e.g., $250 or 'gift cards'"
                     />
                   </div>
                 </div>
                 <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
-                  <div class="bg-zinc-50 px-4 py-3 font-medium">What happened?</div>
+                  <div class="bg-brand-800/60 px-4 py-3 font-medium">What happened?</div>
                   <div class="px-4 py-3">
                     <textarea
                       name="details"
                       rows="4"
-                      class="w-full bg-white border border-zinc-200 rounded-2xl px-3 py-2 text-zinc-700 placeholder:text-zinc-400 outline-none"
+                      class="w-full bg-brand-800/40 border border-white/10 rounded-2xl px-3 py-2 text-zinc-100 placeholder:text-zinc-500 outline-none"
                       placeholder="Share a short summary of messages, requests, dates, and any payments made."
                       required
                     ></textarea>
@@ -257,7 +263,7 @@
             <div class="pt-2">
               <button
                 type="submit"
-                class="inline-flex items-center justify-center rounded-[1000px] bg-black text-white px-6 py-3 text-[14px] leading-[20px] hover:bg-black/85 transition-colors disabled:opacity-70 disabled:pointer-events-none"
+                class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-accent-warm to-accent-rose px-6 py-3 text-[14px] leading-[20px] text-white font-medium shadow-lg shadow-accent-warm/25 hover:shadow-accent-warm/40 hover:scale-[1.02] transition-all disabled:opacity-70 disabled:pointer-events-none"
               >
                 <span class="btn-text">Submit scam report</span>
               </button>
@@ -266,8 +272,8 @@
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-[16px] leading-[22px] text-zinc-700">What we recommend</h2>
-          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-zinc-500">
+          <h2 class="text-[16px] leading-[22px] text-zinc-300">What we recommend</h2>
+          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-zinc-400">
             <li>Stop all contact and do not send money, gift cards, or crypto.</li>
             <li>Take screenshots of profiles and messages before blocking.</li>
             <li>Report the account directly to the platform.</li>
@@ -277,21 +283,21 @@
       </section>
     </main>
 
-    <footer class="bg-[#F6F6F6] text-[14px] leading-[20px] py-8 px-[14px] md:px-[300px]">
+    <footer class="border-t border-white/10 bg-brand-900/60 backdrop-blur-sm text-[14px] leading-[20px] py-10 px-5 md:px-8">
       <div
-        class="max-w-[1251.58px] mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center items-center text-center"
+        class="max-w-[1100px] mx-auto flex flex-col md:flex-row gap-8 md:gap-16 justify-center items-center text-center"
       >
         <div>
-          <p class="text-gray-600 mb-1">Email</p>
+          <p class="text-zinc-500 mb-1 text-[12px] uppercase tracking-wider">Email</p>
           <a
             href="mailto:hello@themartinhenderson.org"
-            class="text-zinc-500 hover:text-black transition-colors"
+            class="text-zinc-300 hover:text-accent-warm transition-colors"
             >hello@themartinhenderson.org</a
           >
         </div>
         <div>
-          <p class="text-gray-600 mb-1">Other</p>
-          <a href="#" class="text-zinc-500 hover:text-black transition-colors">Legal Notice</a>
+          <p class="text-zinc-500 mb-1 text-[12px] uppercase tracking-wider">Legal</p>
+          <a href="#" class="text-zinc-300 hover:text-accent-sky transition-colors">Legal Notice</a>
         </div>
       </div>
     </footer>
@@ -367,7 +373,7 @@
             const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.error || data.details || "Request failed");
-            const confirmHtml = '<div class="border border-zinc-200 rounded-2xl bg-zinc-50/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-zinc-500">Report received</p><h2 class="text-[22px] leading-[28px] font-medium">Thank you</h2><p class="text-[14px] leading-[20px] text-zinc-600 max-w-md mx-auto">Your report has been sent. We&rsquo;ll use it to help keep fans safe.</p></div>';
+            const confirmHtml = '<div class="border border-white/10 rounded-2xl bg-brand-800/60/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-zinc-400">Report received</p><h2 class="text-[22px] leading-[28px] font-medium text-white">Thank you</h2><p class="text-[14px] leading-[20px] text-zinc-300 max-w-md mx-auto">Your report has been sent. We&rsquo;ll use it to help keep fans safe.</p></div>';
             form.outerHTML = confirmHtml;
           } catch (err) {
             alert("Something went wrong. Please try again or email us at hello@themartinhenderson.org.");
