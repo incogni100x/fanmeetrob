@@ -13,8 +13,11 @@
         theme: {
           extend: {
             colors: {
-              brand: { 950: '#0c0a1a', 900: '#110f26', 800: '#1a1735', 700: '#252248' },
-              accent: { warm: '#f59e42', rose: '#f472b6', sky: '#38bdf8', violet: '#a78bfa' }
+              blue: {
+                500: '#0B74FA',
+                600: '#0A68E1'
+              },
+              subtext: '#525866'
             }
           }
         }
@@ -48,59 +51,30 @@
       }
     </style>
   </head>
-  <body class="min-h-screen bg-brand-950 text-zinc-100">
+  <body class="min-h-screen bg-white text-gray-900">
     <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-5 md:px-8 pt-4">
       <div
-        class="w-full flex items-center justify-between px-5 border border-white/10 shadow-lg shadow-black/30 backdrop-blur-xl"
-        style="max-width: 1100px; height: 48px; background: rgba(17,15,38,0.78); border-radius: 1000px"
+        class="w-full flex items-center justify-between px-5 max-w-[1100px] border border-gray-200 shadow-sm"
+        style="height: 48px; background: #ffffff; border-radius: 1000px"
       >
-        <div class="flex items-center gap-3">
-          <a href="/" class="text-[15px] leading-[21px] text-white font-medium tracking-tight"
-            >Martin Henderson</a
-          >
-        </div>
-        <div class="hidden md:flex gap-[8px] items-center">
-          <a
-            href="/booking"
-            class="px-3 py-1.5 text-[14px] rounded-full text-zinc-400 hover:text-accent-warm transition-colors"
-            >Bookings</a
-          >
-          <a
-            href="/meet-and-greet"
-            class="px-3 py-1.5 text-[14px] rounded-full text-zinc-400 hover:text-accent-warm transition-colors"
-            >Meet and Greet</a
-          >
-          <a
-            href="/fan-card"
-            class="px-3 py-1.5 text-[14px] rounded-full text-zinc-400 hover:text-accent-warm transition-colors"
-            >Fan Card</a
-          >
-          <a
-            href="/report-scam"
-            class="px-3 py-1.5 text-[14px] rounded-full text-accent-warm font-medium"
-            >Report Scam</a
-          >
+        <a href="/" class="text-[15px] leading-[21px] text-gray-900 font-medium tracking-tight">Martin Henderson</a>
+
+        <div class="hidden md:flex gap-1 items-center">
+          <a href="/booking" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Bookings</a>
+          <a href="/meet-and-greet" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Meet &amp; Greet</a>
+          <a href="/fan-card" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Fan Card</a>
+          <a href="/report-scam" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Report Scam</a>
         </div>
 
         <button
           type="button"
-          class="md:hidden p-2 rounded-full text-zinc-300 hover:text-white"
+          class="md:hidden p-2 rounded-full text-gray-700 hover:text-gray-900"
           aria-label="Open menu"
           aria-controls="mobileMenu"
           aria-expanded="false"
           onclick="toggleMobileMenu()"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -110,90 +84,63 @@
     </nav>
 
     <div id="mobileMenuOverlay" class="fixed inset-0 z-40 hidden" aria-hidden="true">
-      <button
-        class="absolute inset-0 bg-black/50 backdrop-blur-sm"
-        type="button"
-        aria-label="Close menu overlay"
-        onclick="closeMobileMenu()"
-      ></button>
-
+      <button class="absolute inset-0 bg-black/50 backdrop-blur-sm" type="button" aria-label="Close menu" onclick="closeMobileMenu()"></button>
       <div class="relative flex justify-center px-5 pt-[72px]">
         <div
           id="mobileMenu"
-          class="w-full px-2 py-3 border border-white/10 shadow-2xl"
-          style="max-width: 500px; background: rgba(17,15,38,0.95); border-radius: 20px"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile navigation"
+          class="w-full max-w-[500px] px-2 py-3 border border-gray-200 shadow-2xl"
+          style="background: #ffffff; border-radius: 20px"
+          role="dialog" aria-modal="true" aria-label="Mobile navigation"
         >
-          <div class="flex flex-col gap-0">
-            <a
-              href="/booking"
-              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
-              onclick="closeMobileMenu()"
-              >Bookings</a
-            >
-            <a
-              href="/meet-and-greet"
-              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
-              onclick="closeMobileMenu()"
-              >Meet and Greet</a
-            >
-            <a
-              href="/fan-card"
-              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
-              onclick="closeMobileMenu()"
-              >Fan Card</a
-            >
-            <a
-              href="/report-scam"
-              class="px-4 py-3 text-[15px] rounded-xl text-zinc-300 hover:bg-white/5 hover:text-accent-warm transition-colors"
-              onclick="closeMobileMenu()"
-              >Report Scam</a
-            >
+          <div class="flex flex-col">
+            <a href="/booking" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-gray-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Bookings</a>
+            <a href="/meet-and-greet" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-gray-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Meet &amp; Greet</a>
+            <a href="/fan-card" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-gray-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Fan Card</a>
+            <a href="/report-scam" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-gray-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Report Scam</a>
           </div>
         </div>
       </div>
     </div>
+    </div>
 
-    <main class="pt-[100px] pb-[80px] px-5 md:px-8">
+    <main class="pt-[100px] pb-[80px] px-5 md:px-8 bg-[#F6F8FA]">
       <section class="max-w-[900px] mx-auto space-y-8">
         <header class="space-y-2">
-          <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px] text-white">
+          <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px] text-blue-500">
             Report Impersonation or Scam
           </h1>
-          <p class="text-[14px] leading-[20px] text-zinc-400">
+          <p class="text-[14px] leading-[20px] text-gray-500">
             Use this form to report accounts or messages pretending to be Martin Henderson or his
             team.
           </p>
-          <p class="text-[14px] leading-[20px] text-zinc-400">
+          <p class="text-[14px] leading-[20px] text-gray-500">
             This helps us flag suspicious activity and keep fans safe. If money is involved, contact
             your bank or payment provider immediately.
           </p>
         </header>
 
         <section class="space-y-3">
-          <h2 class="text-[16px] leading-[22px] text-zinc-300">Your Details</h2>
+          <h2 class="text-[16px] leading-[22px] text-blue-500">Your Details</h2>
           <form class="space-y-6" id="reportScamForm" novalidate data-endpoint="https://cgmvzrjxkldxtkrydcdv.supabase.co/functions/v1/report-scam-email">
-            <div class="border border-white/10 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
-                <div class="bg-brand-800/60 px-4 py-3 font-medium">Name (optional)</div>
+            <div class="border border-gray-200 rounded-2xl overflow-hidden text-[14px] leading-[20px] bg-white">
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-gray-200">
+                <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Name (optional)</div>
                 <div class="px-4 py-3">
                   <input
                     type="text"
                     name="name"
-                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
+                    class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900 placeholder:text-gray-500"
                     placeholder="You can stay anonymous"
                   />
                 </div>
               </div>
               <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
-                <div class="bg-brand-800/60 px-4 py-3 font-medium">Contact email</div>
+                <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Contact email</div>
                 <div class="px-4 py-3">
                   <input
                     type="email"
                     name="email"
-                    class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
+                    class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900 placeholder:text-gray-500"
                     placeholder="Only used if we need clarification"
                   />
                 </div>
@@ -201,14 +148,14 @@
             </div>
 
             <section class="space-y-3">
-              <h2 class="text-[16px] leading-[22px] text-zinc-300">Scam Details</h2>
-              <div class="border border-white/10 rounded-2xl overflow-hidden text-[14px] leading-[20px]">
-                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
-                  <div class="bg-brand-800/60 px-4 py-3 font-medium">Platform</div>
+              <h2 class="text-[16px] leading-[22px] text-blue-500">Scam Details</h2>
+              <div class="border border-gray-200 rounded-2xl overflow-hidden text-[14px] leading-[20px] bg-white">
+                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-gray-200">
+                  <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Platform</div>
                   <div class="px-4 py-3">
                     <select
                       name="platform"
-                      class="w-full bg-transparent outline-none text-zinc-100 rounded-xl px-3 py-2"
+                      class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900"
                       required
                     >
                       <option value="">Select platform</option>
@@ -222,36 +169,36 @@
                     </select>
                   </div>
                 </div>
-                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
-                  <div class="bg-brand-800/60 px-4 py-3 font-medium">Account / handle</div>
+                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-gray-200">
+                  <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Account / handle</div>
                   <div class="px-4 py-3">
                     <input
                       type="text"
                       name="handle"
-                      class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
+                      class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900 placeholder:text-gray-500"
                       placeholder="@fakeaccount or email used"
                       required
                     />
                   </div>
                 </div>
-                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-white/10">
-                  <div class="bg-brand-800/60 px-4 py-3 font-medium">Amount requested</div>
+                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-gray-200">
+                  <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Amount requested</div>
                   <div class="px-4 py-3">
                     <input
                       type="text"
                       name="amount"
-                      class="w-full bg-transparent outline-none text-zinc-100 placeholder:text-zinc-500"
+                      class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900 placeholder:text-gray-500"
                       placeholder="e.g., $250 or 'gift cards'"
                     />
                   </div>
                 </div>
                 <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
-                  <div class="bg-brand-800/60 px-4 py-3 font-medium">What happened?</div>
+                  <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">What happened?</div>
                   <div class="px-4 py-3">
                     <textarea
                       name="details"
                       rows="4"
-                      class="w-full bg-brand-800/40 border border-white/10 rounded-2xl px-3 py-2 text-zinc-100 placeholder:text-zinc-500 outline-none"
+                      class="w-full bg-white rounded-2xl px-3 py-2 text-gray-900 placeholder:text-gray-500 outline-none"
                       placeholder="Share a short summary of messages, requests, dates, and any payments made."
                       required
                     ></textarea>
@@ -263,7 +210,7 @@
             <div class="pt-2">
               <button
                 type="submit"
-                class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-accent-warm to-accent-rose px-6 py-3 text-[14px] leading-[20px] text-white font-medium shadow-lg shadow-accent-warm/25 hover:shadow-accent-warm/40 hover:scale-[1.02] transition-all disabled:opacity-70 disabled:pointer-events-none"
+                class="inline-flex items-center justify-center rounded-full bg-blue-500 hover:bg-blue-600 px-6 py-3 text-[14px] leading-[20px] text-white font-medium shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] transition-all disabled:opacity-70 disabled:pointer-events-none"
               >
                 <span class="btn-text">Submit scam report</span>
               </button>
@@ -272,8 +219,8 @@
         </section>
 
         <section class="space-y-3">
-          <h2 class="text-[16px] leading-[22px] text-zinc-300">What we recommend</h2>
-          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-zinc-400">
+          <h2 class="text-[16px] leading-[22px] text-blue-500">What we recommend</h2>
+          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-gray-500">
             <li>Stop all contact and do not send money, gift cards, or crypto.</li>
             <li>Take screenshots of profiles and messages before blocking.</li>
             <li>Report the account directly to the platform.</li>
@@ -283,21 +230,40 @@
       </section>
     </main>
 
-    <footer class="border-t border-white/10 bg-brand-900/60 backdrop-blur-sm text-[14px] leading-[20px] py-10 px-5 md:px-8">
-      <div
-        class="max-w-[1100px] mx-auto flex flex-col md:flex-row gap-8 md:gap-16 justify-center items-center text-center"
-      >
-        <div>
-          <p class="text-zinc-500 mb-1 text-[12px] uppercase tracking-wider">Email</p>
-          <a
-            href="mailto:hello@themartinhenderson.org"
-            class="text-zinc-300 hover:text-accent-warm transition-colors"
-            >hello@themartinhenderson.org</a
-          >
+    <footer class="bg-blue-500 text-white py-14 px-5 md:px-8">
+      <div class="max-w-[1100px] mx-auto">
+        <div class="flex flex-col md:flex-row gap-10 md:gap-16 mb-10">
+          <div class="md:w-1/3">
+            <a href="/" class="text-lg font-semibold text-white">Martin Henderson</a>
+            <p class="text-blue-100 text-[13px] leading-relaxed mt-2 max-w-xs">The official fan site for bookings, meet &amp; greets, fan cards, and everything Martin Henderson.</p>
+          </div>
+          <div>
+            <h4 class="text-[12px] uppercase tracking-wider text-blue-200 mb-3 font-medium">Quick Links</h4>
+            <ul class="space-y-2 text-[14px]">
+              <li><a href="/booking" class="text-blue-100 hover:text-white transition-colors">Bookings</a></li>
+              <li><a href="/meet-and-greet" class="text-blue-100 hover:text-white transition-colors">Meet &amp; Greet</a></li>
+              <li><a href="/fan-card" class="text-blue-100 hover:text-white transition-colors">Fan Card</a></li>
+              <li><a href="/report-scam" class="text-blue-100 hover:text-white transition-colors">Report Scam</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-[12px] uppercase tracking-wider text-blue-200 mb-3 font-medium">Contact</h4>
+            <ul class="space-y-2 text-[14px]">
+              <li><a href="mailto:hello@themartinhenderson.org" class="text-blue-100 hover:text-white transition-colors">hello@themartinhenderson.org</a></li>
+              <li><a href="mailto:support@themartinhenderson.org" class="text-blue-100 hover:text-white transition-colors">support@themartinhenderson.org</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-[12px] uppercase tracking-wider text-blue-200 mb-3 font-medium">Legal</h4>
+            <ul class="space-y-2 text-[14px]">
+              <li><a href="#" class="text-blue-100 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" class="text-blue-100 hover:text-white transition-colors">Terms of Service</a></li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <p class="text-zinc-500 mb-1 text-[12px] uppercase tracking-wider">Legal</p>
-          <a href="#" class="text-zinc-300 hover:text-accent-sky transition-colors">Legal Notice</a>
+        <div class="border-t border-blue-400/40 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-[12px] text-blue-200">
+          <p>&copy; 2026 Martin Henderson. All rights reserved.</p>
+          <p>Made with care for the fan community.</p>
         </div>
       </div>
     </footer>
@@ -373,7 +339,7 @@
             const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.error || data.details || "Request failed");
-            const confirmHtml = '<div class="border border-white/10 rounded-2xl bg-brand-800/60/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-zinc-400">Report received</p><h2 class="text-[22px] leading-[28px] font-medium text-white">Thank you</h2><p class="text-[14px] leading-[20px] text-zinc-300 max-w-md mx-auto">Your report has been sent. We&rsquo;ll use it to help keep fans safe.</p></div>';
+            const confirmHtml = '<div class="border border-gray-200 rounded-2xl bg-gray-50/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-gray-500">Report received</p><h2 class="text-[22px] leading-[28px] font-medium text-blue-500">Thank you</h2><p class="text-[14px] leading-[20px] text-gray-700 max-w-md mx-auto">Your report has been sent. We&rsquo;ll use it to help keep fans safe.</p></div>';
             form.outerHTML = confirmHtml;
           } catch (err) {
             alert("Something went wrong. Please try again or email us at hello@themartinhenderson.org.");
