@@ -51,24 +51,24 @@
       }
     </style>
   </head>
-  <body class="min-h-screen bg-white text-gray-900">
+  <body class="min-h-screen bg-white text-black">
     <nav class="fixed top-0 left-0 right-0 z-50 flex justify-center px-5 md:px-8 pt-4">
       <div
-        class="w-full flex items-center justify-between px-5 max-w-[1100px] border border-gray-200 shadow-sm"
+        class="w-full flex items-center justify-between px-5 max-w-[1100px] border border-blue-200 shadow-sm"
         style="height: 48px; background: #ffffff; border-radius: 1000px"
       >
-        <a href="/" class="text-[15px] leading-[21px] text-gray-900 font-medium tracking-tight">Martin Henderson</a>
+        <a href="/" class="text-[15px] leading-[21px] text-black font-medium tracking-tight">Martin Henderson</a>
 
         <div class="hidden md:flex gap-1 items-center">
-          <a href="/booking" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Bookings</a>
-          <a href="/meet-and-greet" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Meet &amp; Greet</a>
-          <a href="/fan-card" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Fan Card</a>
-          <a href="/report-scam" class="px-3 py-1.5 text-[14px] rounded-full text-gray-600 hover:text-blue-500 transition-colors">Report Scam</a>
+          <a href="/booking" class="px-3 py-1.5 text-[14px] rounded-full text-black hover:text-blue-500 transition-colors">Bookings</a>
+          <a href="/meet-and-greet" class="px-3 py-1.5 text-[14px] rounded-full text-black hover:text-blue-500 transition-colors">Meet &amp; Greet</a>
+          <a href="/fan-card" class="px-3 py-1.5 text-[14px] rounded-full text-black hover:text-blue-500 transition-colors">Fan Card</a>
+          <a href="/report-scam" class="px-3 py-1.5 text-[14px] rounded-full text-black hover:text-blue-500 transition-colors">Report Scam</a>
         </div>
 
         <button
           type="button"
-          class="md:hidden p-2 rounded-full text-gray-700 hover:text-gray-900"
+          class="md:hidden p-2 rounded-full text-black hover:text-black"
           aria-label="Open menu"
           aria-controls="mobileMenu"
           aria-expanded="false"
@@ -88,32 +88,32 @@
       <div class="relative flex justify-center px-5 pt-[72px]">
         <div
           id="mobileMenu"
-          class="w-full max-w-[500px] px-2 py-3 border border-gray-200 shadow-2xl"
+          class="w-full max-w-[500px] px-2 py-3 border border-blue-200 shadow-2xl"
           style="background: #ffffff; border-radius: 20px"
           role="dialog" aria-modal="true" aria-label="Mobile navigation"
         >
           <div class="flex flex-col">
-            <a href="/booking" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-gray-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Bookings</a>
-            <a href="/meet-and-greet" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-gray-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Meet &amp; Greet</a>
-            <a href="/fan-card" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-gray-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Fan Card</a>
-            <a href="/report-scam" class="px-4 py-3 text-[15px] rounded-xl text-gray-700 hover:bg-gray-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Report Scam</a>
+            <a href="/booking" class="px-4 py-3 text-[15px] rounded-xl text-black hover:bg-blue-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Bookings</a>
+            <a href="/meet-and-greet" class="px-4 py-3 text-[15px] rounded-xl text-black hover:bg-blue-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Meet &amp; Greet</a>
+            <a href="/fan-card" class="px-4 py-3 text-[15px] rounded-xl text-black hover:bg-blue-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Fan Card</a>
+            <a href="/report-scam" class="px-4 py-3 text-[15px] rounded-xl text-black hover:bg-blue-50 hover:text-blue-500 transition-colors" onclick="closeMobileMenu()">Report Scam</a>
           </div>
         </div>
       </div>
     </div>
     </div>
 
-    <main class="pt-[100px] pb-[80px] px-5 md:px-8 bg-[#F6F8FA]">
+    <main class="pt-[100px] pb-[80px] px-5 md:px-8 bg-blue-50/40">
       <section class="max-w-[900px] mx-auto space-y-8">
         <header class="space-y-2">
           <h1 class="text-[28px] leading-[34px] md:text-[32px] md:leading-[38px] text-blue-500">
             Report Impersonation or Scam
           </h1>
-          <p class="text-[14px] leading-[20px] text-gray-500">
+          <p class="text-[14px] leading-[20px] text-black">
             Use this form to report accounts or messages pretending to be Martin Henderson or his
             team.
           </p>
-          <p class="text-[14px] leading-[20px] text-gray-500">
+          <p class="text-[14px] leading-[20px] text-black">
             This helps us flag suspicious activity and keep fans safe. If money is involved, contact
             your bank or payment provider immediately.
           </p>
@@ -122,25 +122,25 @@
         <section class="space-y-3">
           <h2 class="text-[16px] leading-[22px] text-blue-500">Your Details</h2>
           <form class="space-y-6" id="reportScamForm" novalidate data-endpoint="https://cgmvzrjxkldxtkrydcdv.supabase.co/functions/v1/report-scam-email">
-            <div class="border border-gray-200 rounded-2xl overflow-hidden text-[14px] leading-[20px] bg-white">
-              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-gray-200">
-                <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Name (optional)</div>
+            <div class="border border-blue-200 rounded-2xl overflow-hidden text-[14px] leading-[20px] bg-white">
+              <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-blue-200">
+                <div class="bg-blue-500 px-4 py-3 font-medium text-white">Name (optional)</div>
                 <div class="px-4 py-3">
                   <input
                     type="text"
                     name="name"
-                    class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900 placeholder:text-gray-500"
+                    class="w-full bg-white rounded-xl px-3 py-2 outline-none text-black placeholder:text-black/50"
                     placeholder="You can stay anonymous"
                   />
                 </div>
               </div>
               <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
-                <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Contact email</div>
+                <div class="bg-blue-500 px-4 py-3 font-medium text-white">Contact email</div>
                 <div class="px-4 py-3">
                   <input
                     type="email"
                     name="email"
-                    class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900 placeholder:text-gray-500"
+                    class="w-full bg-white rounded-xl px-3 py-2 outline-none text-black placeholder:text-black/50"
                     placeholder="Only used if we need clarification"
                   />
                 </div>
@@ -149,13 +149,13 @@
 
             <section class="space-y-3">
               <h2 class="text-[16px] leading-[22px] text-blue-500">Scam Details</h2>
-              <div class="border border-gray-200 rounded-2xl overflow-hidden text-[14px] leading-[20px] bg-white">
-                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-gray-200">
-                  <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Platform</div>
+              <div class="border border-blue-200 rounded-2xl overflow-hidden text-[14px] leading-[20px] bg-white">
+                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-blue-200">
+                  <div class="bg-blue-500 px-4 py-3 font-medium text-white">Platform</div>
                   <div class="px-4 py-3">
                     <select
                       name="platform"
-                      class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900"
+                      class="w-full bg-white rounded-xl px-3 py-2 outline-none text-black"
                       required
                     >
                       <option value="">Select platform</option>
@@ -169,36 +169,36 @@
                     </select>
                   </div>
                 </div>
-                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-gray-200">
-                  <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Account / handle</div>
+                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-blue-200">
+                  <div class="bg-blue-500 px-4 py-3 font-medium text-white">Account / handle</div>
                   <div class="px-4 py-3">
                     <input
                       type="text"
                       name="handle"
-                      class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900 placeholder:text-gray-500"
+                      class="w-full bg-white rounded-xl px-3 py-2 outline-none text-black placeholder:text-black/50"
                       placeholder="@fakeaccount or email used"
                       required
                     />
                   </div>
                 </div>
-                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-gray-200">
-                  <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">Amount requested</div>
+                <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr] border-b border-blue-200">
+                  <div class="bg-blue-500 px-4 py-3 font-medium text-white">Amount requested</div>
                   <div class="px-4 py-3">
                     <input
                       type="text"
                       name="amount"
-                      class="w-full bg-white rounded-xl px-3 py-2 outline-none text-gray-900 placeholder:text-gray-500"
+                      class="w-full bg-white rounded-xl px-3 py-2 outline-none text-black placeholder:text-black/50"
                       placeholder="e.g., $250 or 'gift cards'"
                     />
                   </div>
                 </div>
                 <div class="grid grid-cols-[140px,1fr] md:grid-cols-[200px,1fr]">
-                  <div class="bg-blue-50/70 px-4 py-3 font-medium text-gray-800">What happened?</div>
+                  <div class="bg-blue-500 px-4 py-3 font-medium text-white">What happened?</div>
                   <div class="px-4 py-3">
                     <textarea
                       name="details"
                       rows="4"
-                      class="w-full bg-white rounded-2xl px-3 py-2 text-gray-900 placeholder:text-gray-500 outline-none"
+                      class="w-full bg-white rounded-2xl px-3 py-2 text-black placeholder:text-black/50 outline-none"
                       placeholder="Share a short summary of messages, requests, dates, and any payments made."
                       required
                     ></textarea>
@@ -220,7 +220,7 @@
 
         <section class="space-y-3">
           <h2 class="text-[16px] leading-[22px] text-blue-500">What we recommend</h2>
-          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-gray-500">
+          <ul class="list-disc pl-5 space-y-1 text-[14px] leading-[20px] text-black">
             <li>Stop all contact and do not send money, gift cards, or crypto.</li>
             <li>Take screenshots of profiles and messages before blocking.</li>
             <li>Report the account directly to the platform.</li>
@@ -339,7 +339,7 @@
             const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.error || data.details || "Request failed");
-            const confirmHtml = '<div class="border border-gray-200 rounded-2xl bg-gray-50/50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-gray-500">Report received</p><h2 class="text-[22px] leading-[28px] font-medium text-blue-500">Thank you</h2><p class="text-[14px] leading-[20px] text-gray-700 max-w-md mx-auto">Your report has been sent. We&rsquo;ll use it to help keep fans safe.</p></div>';
+            const confirmHtml = '<div class="border border-blue-200 rounded-2xl bg-blue-50 px-6 py-10 text-center space-y-3"><p class="text-[13px] leading-[18px] text-black">Report received</p><h2 class="text-[22px] leading-[28px] font-medium text-blue-500">Thank you</h2><p class="text-[14px] leading-[20px] text-black max-w-md mx-auto">Your report has been sent. We&rsquo;ll use it to help keep fans safe.</p></div>';
             form.outerHTML = confirmHtml;
           } catch (err) {
             alert("Something went wrong. Please try again or email us at hello@themartinhenderson.org.");
