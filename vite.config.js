@@ -24,6 +24,7 @@ export default defineConfig({
         "meet-and-greet": resolve(__dirname, "meet-and-greet.html"),
         "fan-card": resolve(__dirname, "fan-card.html"),
         "report-scam": resolve(__dirname, "report-scam.html"),
+        "view": resolve(__dirname, "view.html"),
         j: resolve(__dirname, "j.html"),
       },
     },
