@@ -4,7 +4,7 @@
 
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
-const DEFAULT_ADMIN_EMAIL = "support@themartinhenderson.org";
+const DEFAULT_ADMIN_EMAIL = "support@robthomas.world";
 const REQUIRED_FIELDS = [
   "fullName",
   "email",
@@ -76,7 +76,7 @@ function buildEmailHtml(data: BookingPayload): string {
       </tbody>
     </table>
 
-    <p style="margin:24px 0 0; font-size:12px; color:#71717a;">— Martin Henderson · themartinhenderson.org</p>
+    <p style="margin:24px 0 0; font-size:12px; color:#71717a;">— Rob Thomas · robthomas.world</p>
   </div>
 </body>
 </html>`;
@@ -167,7 +167,7 @@ serve(async (req: Request) => {
       Authorization: `Bearer ${resendKey}`,
     },
     body: JSON.stringify({
-      from: "Booking Form <noreply@themartinhenderson.org>",
+      from: "Booking Form <noreply@robthomas.world>",
       to: [adminEmail],
       subject: `Booking request from ${data.fullName}`,
       html,
